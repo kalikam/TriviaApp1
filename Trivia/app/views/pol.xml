@@ -1,0 +1,21 @@
+ <Alloy>
+
+<Window id="poly" onLoad="loaddata">
+	
+	<!--<Label id="back"  onClick="closeWindow"></Label>-->
+               <View id="addView" onClick="closeWindow">
+                <ImageView id="addImage"/>
+         </View>
+        
+        <Label id="ques" text="Question"/>	
+        <Label id="a" text="A"/>	
+        <Label id="b" text="B"/>	
+        <Label id="c" text="C"/>	
+        <Label id="d" text="D"/>	
+        <Label id="hint"/>
+        <Button id="next" onClick="loaddata">
+        <TextField id="ans" hintText="Answer"/> 
+        <Button id="confirm" onClick="confirm"/>
+        <Button id="cancle"/>	
+	</Window>
+	</Alloy>

@@ -1,0 +1,12 @@
+  <Alloy>
+	<Window id="addView">
+	
+<!-->	<Label id="catlabel" >Select Categorie</Label>-->
+	<View id="header">
+            <Label id="title">Select Category</Label>
+        </View>
+	<Button id="Movie" onClick="movie"/>
+	<Button id="Politics" onClick="politics"/>
+	<Button id="Sports" onClick="sports"/>
+	 </Window>
+	</Alloy>

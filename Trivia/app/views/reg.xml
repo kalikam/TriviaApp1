@@ -1,0 +1,10 @@
+<Alloy>
+  	<Window id="addWin" title="Add Item" class="container" modal="true">
+        <TextField id="itemName" hintText="Enter Your name!" onReturn="closeKeyboard"/>
+    	<TextField id="itemEmail" hintText="Enter Your Email!" onReturn="closeKeyboard"/>
+    	<TextField id="itemUser" hintText="Enter your User-id" onReturn="closeKeyboard"/>
+    	<TextField id="itemPwd" hintText="Enter your password" onReturn="closeKeyboard"/>
+    	<Button class="button" id="loginBtn" onClick="makeReg">Submitt</Button>
+    	<Button class="button" onClick="closeWindow">Cancel</Button>
+    	</Window>
+</Alloy>
