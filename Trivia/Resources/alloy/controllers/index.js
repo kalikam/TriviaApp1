@@ -13,7 +13,11 @@ function Controller() {
             loginReq.send(params);
             loginReq.onload = function() {
                 var json = JSON.parse(this.responseText), json1 = json.message;
-                json.logged == 1 ? Alloy.createController("home").getView().open() : alert("Wrong User/Password");
+                if (json.logged == 1) {
+                    user_name = json.message;
+                    alert(user_name);
+                    Alloy.createController("home").getView().open();
+                } else alert("Wrong User/Password");
             };
         } else alert("Username/Password are required");
     }
@@ -109,16 +113,18 @@ function Controller() {
     });
     $.__views.todoWin.add($.__views.addReg);
     goReg ? $.__views.addReg.addEventListener("click", goReg) : __defers["$.__views.addReg!click!goReg"] = !0;
-    $.__views.__alloyId3 = Ti.UI.createLabel({
-        color: "#900",
+    $.__views.reg = Ti.UI.createLabel({
+        color: "#000",
         text: "Register Here",
-        top: "30",
-        id: "__alloyId3"
+        id: "reg"
     });
-    $.__views.addReg.add($.__views.__alloyId3);
+    $.__views.addReg.add($.__views.reg);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var todos = Alloy.Collections.todo, todos = Alloy.Collections.todo;
+    var todos = Alloy.Collections.todo;
+    Ti.App.myGlobalVar = "user_name";
+    Ti.App.myGlobalVar = "att_q";
+    var todos = Alloy.Collections.todo;
     $.todoWin.open();
     __defers["$.__views.Login!click!login_user"] && $.__views.Login.addEventListener("click", login_user);
     __defers["$.__views.addReg!click!goReg"] && $.__views.addReg.addEventListener("click", goReg);

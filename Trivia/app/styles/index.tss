@@ -55,8 +55,6 @@
 
 "#addReg": {
        top:"250dp", 
-
-       
        align:"center",
        width:"124dp", 
 
@@ -69,28 +67,7 @@
 	backgroundColor: "transparent",
 	image: "/ic_menu_add.png",
 	touchEnabled: false
-},
-"#footer": {
-	bottom: 0,
-	height: '46dp',
-	width: Ti.UI.FILL,
-	backgroundGradient: {
-		type: "linear",
-		startPoint: { x: "0%", y:"0%"},
-		endPoint:   { x: "0%", y:"100%"},
-		colors: [
-			{ color: "#a00", offset: 0.0 },
-			{ color: "#800", offset: 1.0 }
-		]
-	}
-},
-"#tabbedbar": {
-	style:Titanium.UI.iPhone.SystemButtonStyle.BAR,
-	backgroundColor: '#800',
-	index: 0,
-	height: 40,
-	left: 20, 
-	right: 20
+
 },
 "#Login":{ 
 
@@ -103,8 +80,6 @@
        width:"290dp", 
 
        height:"50dp", 
-
-
 },
 "#email":{ 
 

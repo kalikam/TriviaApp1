@@ -1,8 +1,16 @@
-var todos = Alloy.Collections.todo;
 
+var todos = Alloy.Collections.todo;
+var total=0;
+var selection = 0;
+var ans1,ans2,ans3,ans4,hint,answer;
+var m=1;
 
 function loaddata()
 {
+	$.correct.backgroundImage='/tick_gray_64.png';
+	$.wrong.backgroundImage='/gray_x.png';
+	
+	
 	var m=1;
     
     var dataReq = Titanium.Network.createHTTPClient();    	
@@ -20,20 +28,31 @@ function loaddata()
                 	
                      var json = JSON.parse(this.responseText); 
                     
-                    var q=json.question;
-                     var a=json.a;
-                     var b=json.b;
-                     var c=json.c;
-                      var d=json.d;  
-                     var hint=json.hint;
+                     var q=json.question;
+                      hint=json.hint;
                      
+				
+					$.addB.backgroundImage="/radioButtonIcon(1).gif";
+					$.addD.backgroundImage="/radioButtonIcon(1).gif";
+					$.addC.backgroundImage="/radioButtonIcon(1).gif";	
+					$.addA.backgroundImage="/radioButtonIcon(1).gif";
+
                      $.ques.text=q;
-                     $.a.text=a;
-                     $.b.text=b;
-                     $.c.text=c;
-                     $.d.text=d;
+                     $.a.text=json.a;
+                     $.b.text=json.b;
+                     $.c.text=json.c;
+                     $.d.text=json.d;
                      $.hint.text=hint;
+                    
+                    
+                     ans1=json.a;
+                     ans2=json.b;
+                     ans3=json.c;
+                     ans4=json.d;
+             
+                    
                     }
+                    
 
 
                  };
@@ -41,31 +60,123 @@ function loaddata()
 
 
 
-function confirm()
-{
-   var ans=	$.ans.value;
-     
-   var ans1=$.hint.text;   
-  // alert(ans1);
-  // alert(ans);
-
-      if(ans==ans1)
-      {
-      	
-      	alert("Ans is Right");
-      	loaddata();
-      }
-      else{
-      	alert("Wrong Ans");
-      	loaddata();
-      }
-
-
-
-}
  
 
 
 function closeWindow() {
     $.movie.close();
 };
+
+
+function check1()
+{
+	$.addB.backgroundImage="/radioButtonIcon(1).gif";
+	$.addD.backgroundImage="/radioButtonIcon(1).gif";
+	$.addC.backgroundImage="/radioButtonIcon(1).gif";	
+	$.addA.backgroundImage="/radioButtonSelectIcon.gif";
+     selection = 1;
+}
+
+function check2()
+{
+	$.addA.backgroundImage="/radioButtonIcon(1).gif";
+	$.addC.backgroundImage="/radioButtonIcon(1).gif";
+	$.addD.backgroundImage="/radioButtonIcon(1).gif";	
+	$.addB.backgroundImage="/radioButtonSelectIcon.gif";
+	selection = 2;	
+}
+
+function check3()
+{   $.addA.backgroundImage="/radioButtonIcon(1).gif";
+	$.addB.backgroundImage="/radioButtonIcon(1).gif";
+	$.addD.backgroundImage="/radioButtonIcon(1).gif";	
+	$.addC.backgroundImage="/radioButtonSelectIcon.gif";	
+	selection = 3;
+	
+}
+
+function check4()
+{
+    $.addA.backgroundImage="/radioButtonIcon(1).gif";
+	$.addB.backgroundImage="/radioButtonIcon(1).gif";
+	$.addC.backgroundImage="/radioButtonIcon(1).gif";	
+	$.addD.backgroundImage="/radioButtonSelectIcon.gif";	
+	selection = 4;
+}
+
+
+function confirm_ans()
+{ 
+	
+	switch(selection)
+	{ case 1:
+		answer = ans1;
+		break;
+       case 2:
+		answer = ans2;
+		break;
+		case 3:
+		answer = ans3;
+		break;
+		case 4:
+		answer = ans4;
+		break;		
+	}
+	
+	if(answer==hint)
+	
+	{      
+		alert("right");
+		
+	$.correct.backgroundImage='/tick.png';
+	
+		 total=parseInt(total)+10; 
+		att_q =  parseInt(att_q) + 1;
+       // alert(att_q);
+        if(parseInt(att_q)>5)
+        { alert("hello");
+        	 	
+        	 	
+        	 	 var upScore = Titanium.Network.createHTTPClient();    	
+
+              upScore.open("POST","http://nxgninnovations.com/playground/add_score.php");
+         
+              var params = {  
+                user : user_name, total : total, cat : m };
+                
+               
+                upScore.send(params);  
+               
+                upScore.onload=function()
+                {
+                	var json = JSON.parse(this.responseText); 
+                    
+                     var q=json.msg;
+                     var p=json.status;
+                     
+                     if(p==1)
+                     {
+                     	                     
+                     	
+                     	Alloy.createController("score").getView().open();
+                     	
+                    
+                     	
+                     }
+                      
+                     }  
+	   }
+	   else
+	   {
+	   	
+        
+	   }
+	}
+	else
+	{
+		alert("Wrong ans");
+		$.wrong.backgroundImage='/red_x.png';
+	    
+	}
+	
+}

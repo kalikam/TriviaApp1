@@ -4,7 +4,7 @@
     	<TextField id="itemEmail" hintText="Enter Your Email!" onReturn="closeKeyboard"/>
     	<TextField id="itemUser" hintText="Enter your User-id" onReturn="closeKeyboard"/>
     	<TextField id="itemPwd" hintText="Enter your password" onReturn="closeKeyboard"/>
-    	<Button class="button" id="loginBtn" onClick="makeReg">Submitt</Button>
-    	<Button class="button" onClick="closeWindow">Cancel</Button>
+    	<Button id="reg"  onClick="makeReg">Submitt</Button>
+    	<Button id="reg" onClick="closeWindow">Cancel</Button>
     	</Window>
 </Alloy>

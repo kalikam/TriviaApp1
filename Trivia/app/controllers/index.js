@@ -1,5 +1,6 @@
 var todos = Alloy.Collections.todo;
-
+Ti.App.myGlobalVar='user_name';
+Ti.App.myGlobalVar='att_q';
 function goReg() 
 {
   	Alloy.createController("reg").getView().open();
@@ -17,7 +18,7 @@ function login_user()
     var loginReq = Titanium.Network.createHTTPClient();  
      
      //alert($.email.value);
-  
+     //alert($.password.value);
  
         if ($.email.value != '' && $.password.value != '')  
         {  
@@ -35,8 +36,10 @@ function login_user()
 
                      var json1 = json.message; 
                     if(json.logged==true) {
-                    	 Alloy.createController("home").getView().open();
-                    	
+                    	 
+                    	user_name=json.message;
+                    	alert(user_name);
+                         Alloy.createController("home").getView().open();
                     } else{
                     	alert("Wrong User/Password");
                     }

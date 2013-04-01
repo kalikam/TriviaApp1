@@ -1,6 +1,6 @@
  <Alloy>
 
-<Window id="poly" onLoad="loaddata">
+<Window id="pol" onLoad="loaddata">
 	
 	<!--<Label id="back"  onClick="closeWindow"></Label>-->
                <View id="addView" onClick="closeWindow">
@@ -8,14 +8,29 @@
          </View>
         
         <Label id="ques" text="Question"/>	
-        <Label id="a" text="A"/>	
-        <Label id="b" text="B"/>	
-        <Label id="c" text="C"/>	
-        <Label id="d" text="D"/>	
+        <View>
+        <Label id="a" />	
+        <Button id="addA" onClick="check1"/>	
+        
+        
+        
+        <Label id="b"  />	
+        <Button id="addB"onClick="check2" />	
+        
+        
+        <Label id="c"  />
+        <Button id="addC" onClick="check3" />	
+        
+         <Label id="d"  />
+        <Button id="addD" onClick="check4"/>	
+     
         <Label id="hint"/>
-        <Button id="next" onClick="loaddata">
-        <TextField id="ans" hintText="Answer"/> 
-        <Button id="confirm" onClick="confirm"/>
+              
+        <Button id="next" onClick="loaddata"/>
+        <Button id="confirm" onClick="confirm_ans"/>
         <Button id="cancle"/>	
+         <Label id="correct"/>
+        <Label id="wrong"/>
+         </View>
 	</Window>
 	</Alloy>

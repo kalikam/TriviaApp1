@@ -47,31 +47,31 @@
 		   top:"80dp",
 		   width:"280dp",
 			height:"40dp",
-			left:"20dp"
+			left:"30dp"
 		  },
 		  "#a": {
 		   top:"120dp",
 		   width:"400dp",
 			height:"40dp",
-		   left:"20dp"
+		   left:"70dp"
 		  },
 		  "#b": {
 		   top:"150dp",
 		   width:"400dp",
 			height:"40dp",
-		   left:"20dp"
+		   left:"70dp"
 		  },
 		  "#c": {
 		   top:"180dp",
 		   width:"400dp",
 			height:"40dp",
-		   left:"20dp"
+		   left:"70dp"
 		  },
 		  "#d": {
 		   top:"210dp",
 		   width:"400dp",
 			height:"40dp",
-		   left:"20dp"
+		   left:"70dp"
 		   },
 		  "#next": {
 		   top:"0dp",
@@ -102,7 +102,60 @@
 			height:"40dp",
 		   left:"190dp",
 		   title:"Cancel",
-		   }
+		  },"#addA": {
+		  
+		   top:"130dp",
+		   width:"20dp",
+			height:"20dp",
+		   left:"30dp"
+		  
+		  },"#addB": {
+		  
+		   top:"160dp",
+		   width:"20dp",
+			height:"20dp",
+		   left:"30dp"
+		  
+		  },"#addC": {
+		  
+		   top:"190dp",
+		   width:"20dp",
+			height:"20dp",
+		   left:"30dp"
+		  
+		  },"#addD": {
+		  
+		   top:"220dp",
+		   width:"20dp",
+			height:"20dp",
+		   left:"30dp"
+		 },
+		  "#hint": {
+		   top:"300dp",
+		   width:"80dp",
+			height:"40dp",
+		   left:"53dp",
+		   title:"Confirm"
+		  },
+		  "#correct": {
+		   top:"350dp",
+		   width:"80dp",
+			height:"40dp",
+		   left:"50dp",
+		   image:"/tick.png" 
+		  },
+		  "#wrong": {
+		   top:"350dp",
+		   width:"80dp",
+			height:"40dp",
+		   left:"190dp",
+		   image:"/red_x.png" 
+		  }
+
+		  
+		  
+		  
+		  
 		   
 		   
 		   

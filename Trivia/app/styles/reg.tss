@@ -8,14 +8,14 @@
 	returnKeyType: Ti.UI.RETURNKEY_DONE
 },
 "#itemEmail":{
-   top: '20dp',
+   top: '12dp',
    width:"290dp", 
    height:"50dp", 
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	returnKeyType: Ti.UI.RETURNKEY_DONE
 },
 "#itemUser":{
-	top: '25dp',
+	top: '14dp',
    width:"290dp", 
    height:"50dp", 
 	
@@ -23,7 +23,7 @@
 	returnKeyType: Ti.UI.RETURNKEY_DONE
 },
 "#itemPwd":{
-	top: '30dp',
+	top: '16dp',
    width:"290dp", 
    height:"50dp", 
 		borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -33,13 +33,13 @@
 	layout: 'vertical',
 	barColor: '#a00'
 },
-"#itemField":{
-	width: '90%',
-	top: '25dp',
-	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	returnKeyType: Ti.UI.RETURNKEY_DONE
-},
-".button":{
-	width: '50%',
-	top: '20dp'
+"#reg":{
+	top: "20dp",
+	width: "50dp",
+    left:"50dp",
+	
 }
+	
+
+
+

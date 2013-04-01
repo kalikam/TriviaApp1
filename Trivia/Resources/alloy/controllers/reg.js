@@ -50,7 +50,7 @@ function Controller() {
     $.__views.addWin.add($.__views.itemName);
     closeKeyboard ? $.__views.itemName.addEventListener("return", closeKeyboard) : __defers["$.__views.itemName!return!closeKeyboard"] = !0;
     $.__views.itemEmail = Ti.UI.createTextField({
-        top: "20dp",
+        top: "12dp",
         width: "290dp",
         height: "50dp",
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -61,7 +61,7 @@ function Controller() {
     $.__views.addWin.add($.__views.itemEmail);
     closeKeyboard ? $.__views.itemEmail.addEventListener("return", closeKeyboard) : __defers["$.__views.itemEmail!return!closeKeyboard"] = !0;
     $.__views.itemUser = Ti.UI.createTextField({
-        top: "25dp",
+        top: "14dp",
         width: "290dp",
         height: "50dp",
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -72,7 +72,7 @@ function Controller() {
     $.__views.addWin.add($.__views.itemUser);
     closeKeyboard ? $.__views.itemUser.addEventListener("return", closeKeyboard) : __defers["$.__views.itemUser!return!closeKeyboard"] = !0;
     $.__views.itemPwd = Ti.UI.createTextField({
-        top: "30dp",
+        top: "16dp",
         width: "290dp",
         height: "50dp",
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -82,30 +82,32 @@ function Controller() {
     });
     $.__views.addWin.add($.__views.itemPwd);
     closeKeyboard ? $.__views.itemPwd.addEventListener("return", closeKeyboard) : __defers["$.__views.itemPwd!return!closeKeyboard"] = !0;
-    $.__views.loginBtn = Ti.UI.createButton({
-        width: "50%",
+    $.__views.reg = Ti.UI.createButton({
         top: "20dp",
+        width: "50dp",
+        left: "50dp",
         title: "Submitt",
-        id: "loginBtn"
+        id: "reg"
     });
-    $.__views.addWin.add($.__views.loginBtn);
-    makeReg ? $.__views.loginBtn.addEventListener("click", makeReg) : __defers["$.__views.loginBtn!click!makeReg"] = !0;
-    $.__views.__alloyId4 = Ti.UI.createButton({
-        width: "50%",
+    $.__views.addWin.add($.__views.reg);
+    makeReg ? $.__views.reg.addEventListener("click", makeReg) : __defers["$.__views.reg!click!makeReg"] = !0;
+    $.__views.reg = Ti.UI.createButton({
         top: "20dp",
+        width: "50dp",
+        left: "50dp",
         title: "Cancel",
-        id: "__alloyId4"
+        id: "reg"
     });
-    $.__views.addWin.add($.__views.__alloyId4);
-    closeWindow ? $.__views.__alloyId4.addEventListener("click", closeWindow) : __defers["$.__views.__alloyId4!click!closeWindow"] = !0;
+    $.__views.addWin.add($.__views.reg);
+    closeWindow ? $.__views.reg.addEventListener("click", closeWindow) : __defers["$.__views.reg!click!closeWindow"] = !0;
     exports.destroy = function() {};
     _.extend($, $.__views);
     __defers["$.__views.itemName!return!closeKeyboard"] && $.__views.itemName.addEventListener("return", closeKeyboard);
     __defers["$.__views.itemEmail!return!closeKeyboard"] && $.__views.itemEmail.addEventListener("return", closeKeyboard);
     __defers["$.__views.itemUser!return!closeKeyboard"] && $.__views.itemUser.addEventListener("return", closeKeyboard);
     __defers["$.__views.itemPwd!return!closeKeyboard"] && $.__views.itemPwd.addEventListener("return", closeKeyboard);
-    __defers["$.__views.loginBtn!click!makeReg"] && $.__views.loginBtn.addEventListener("click", makeReg);
-    __defers["$.__views.__alloyId4!click!closeWindow"] && $.__views.__alloyId4.addEventListener("click", closeWindow);
+    __defers["$.__views.reg!click!makeReg"] && $.__views.reg.addEventListener("click", makeReg);
+    __defers["$.__views.reg!click!closeWindow"] && $.__views.reg.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
 

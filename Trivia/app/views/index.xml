@@ -6,18 +6,14 @@
         <View id="header">
             <Label id="title">Login Here</Label>
             
-            <!--<View id="addView" onClick="addToDoItem">
-                <ImageView id="addImage"/>
-         </View>-->
-         	
-                     </View>
+            </View>
         	      <View> 
         		  <TextField id="email" hintText="Email"/>  
                    <TextField id="password" hintText="Password" passwordMask="true"/> 
                    <Button id="Login" onClick="login_user">Login</Button>
                     </View> 	
              <View id="addReg"  onClick="goReg">
-              <Label color="#900" top="30" >Register Here</Label>
+              <Label id="reg">Register Here</Label>
                </View>
                
          
