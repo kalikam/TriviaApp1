@@ -1,0 +1,165 @@
+		  "#addImage": {
+		top:"1dp",
+		   width:"60dp",
+			height:"40dp",
+		   left:"0dp",
+	
+	color: "#fff",
+	backgroundColor: "transparent",
+	image: "/Android_BackButton_1.png",
+	touchEnabled: false
+},
+"#header": {
+	top: 0,
+	height: "42dp",
+	width: Ti.UI.FILL,
+	backgroundGradient: {
+		type: "linear",
+		startPoint: { x: "0%", y:"0%"},
+		endPoint:   { x: "0%", y:"100%"},
+		colors: [
+			{ color: "#000", offset: 0.0 },
+			{ color: "#ccc", offset: 1.0 }
+		]
+	}
+},
+".divider": {
+	height: "48dp",
+	width: "3dp",
+	top: "1dp",
+	left: "60dp",
+	backgroundGradient: {
+		type: "linear",
+		startPoint: { x: "0%",   y:"0%"},
+		endPoint:   { x: "100%", y:"0%"},
+		colors: [
+			{ color: "#666", offset: 0.0 },
+			{ color: "#ccc", offset: 0.5 },
+			{ color: "#666", offset: 1.0 }
+		]
+	}
+},
+".button":{
+	width: '50%',
+	top: '20dp'
+},
+"#ques": {
+		   top:"80dp",
+		   width:"280dp",
+			height:"40dp",
+			left:"30dp"
+		  },
+		  "#a": {
+		   top:"120dp",
+		   width:"400dp",
+			height:"40dp",
+		   left:"70dp"
+		  },
+		  "#b": {
+		   top:"150dp",
+		   width:"400dp",
+			height:"40dp",
+		   left:"70dp"
+		  },
+		  "#c": {
+		   top:"180dp",
+		   width:"400dp",
+			height:"40dp",
+		   left:"70dp"
+		  },
+		  "#d": {
+		   top:"210dp",
+		   width:"400dp",
+			height:"40dp",
+		   left:"70dp"
+		   },
+		  "#next": {
+		   top:"0dp",
+		   width:"80dp",
+			height:"40dp",
+		   right:"20dp",
+		   title:"Next",
+		   }
+		   ,
+		  "#ans": {
+		   top:"250dp",
+		   width:"200dp",
+			height:"40dp",
+		   align:"center",
+		   title:"Next",
+		  },
+		  "#confirm": {
+		   top:"300dp",
+		   width:"80dp",
+			height:"40dp",
+		   left:"50dp",
+		   title:"Confirm",
+		  },
+		  ,
+		  "#cancle": {
+		   top:"300dp",
+		   width:"80dp",
+			height:"40dp",
+		   left:"190dp",
+		   title:"Cancel",
+		  },"#addA": {
+		  
+		   top:"130dp",
+		   width:"20dp",
+			height:"20dp",
+		   left:"30dp"
+		  
+		  },"#addB": {
+		  
+		   top:"160dp",
+		   width:"20dp",
+			height:"20dp",
+		   left:"30dp"
+		  
+		  },"#addC": {
+		  
+		   top:"190dp",
+		   width:"20dp",
+			height:"20dp",
+		   left:"30dp"
+		  
+		  },"#addD": {
+		  
+		   top:"220dp",
+		   width:"20dp",
+			height:"20dp",
+		   left:"30dp"
+		 },
+		  "#hint": {
+		   top:"300dp",
+		   width:"80dp",
+			height:"40dp",
+		   left:"53dp",
+		   title:"Confirm"
+		  },
+		  "#correct": {
+		   top:"350dp",
+		   width:"80dp",
+			height:"40dp",
+		   left:"50dp",
+		   image:"/tick.png" 
+		  },
+		  "#wrong": {
+		   top:"350dp",
+		   width:"80dp",
+			height:"40dp",
+		   left:"190dp",
+		   image:"/red_x.png" 
+		  }
+		  
+		  
+		  
+		  
+		  
+		   
+		   
+		   
+		   
+
+
+

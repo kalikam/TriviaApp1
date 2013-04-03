@@ -1,6 +1,9 @@
 var todos = Alloy.Collections.todo;
-Ti.App.myGlobalVar='user_name';
+Ti.App.myGlobalVar='user_name','demo';
 Ti.App.myGlobalVar='att_q';
+Ti.App.myGlobalVar='mul_q';
+Ti.App.myGlobalVar='numid1';
+
 function goReg() 
 {
   	Alloy.createController("reg").getView().open();
@@ -39,7 +42,7 @@ function login_user()
                     	 
                     	user_name=json.message;
                     	alert(user_name);
-                         Alloy.createController("home").getView().open();
+                         Alloy.createController("gametype").getView().open();
                     } else{
                     	alert("Wrong User/Password");
                     }

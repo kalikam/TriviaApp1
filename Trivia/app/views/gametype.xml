@@ -1,0 +1,6 @@
+<Alloy>
+  	<Window id="typeWin" title="Select Game Type">
+    	<Button id="button11" onClick="single">Single Player</Button>
+    	<Button id="button21" onClick="multi">Multi Player</Button>
+  	</Window>
+</Alloy>

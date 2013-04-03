@@ -1,0 +1,49 @@
+"#score":{ 
+
+},
+"#tableView12":{ 
+top: "230dp",
+},
+"#sendto":{
+	top: "50dp",
+	width : "240dp",
+}, 
+"#send":
+{
+	top:"110dp",
+    right:"20dp",
+    width:"180dp",
+}, 
+"#textF":
+{
+	top:"150dp",
+    align:"center",
+    width:"180dp",
+     height:"40dp",
+}
+, 
+"#invite":
+{
+	top:"190dp",
+    align:"center",
+    width:"180dp",
+      height:"40dp",
+}, 
+"#tab1":{ 
+
+       title:"Request to play", 
+       height:"10dp",
+}, 
+"#tab2":{ 
+
+       title:"Send Request", 
+       height:"10dp",
+},
+"#multiplayer1":{ 
+
+},
+"#tab3":{ 
+       title:"Multiplayer", 
+}
+
+

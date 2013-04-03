@@ -1,0 +1,36 @@
+
+<Alloy>
+
+
+<TabGroup id="tabGroup">
+	<Tab id="tab1">
+   
+     <Window id="score" onFocus="show">
+     <TableView id="tableView"/> 
+     
+      </Window>
+ 	 
+ 	  </Tab>
+	  
+	  <Tab id="tab2" onClick="show3"> 
+    
+    <Window id="score">
+    <TextField id="textF" hintText="Friend Id"/>
+     <Button id="invite">Invite Friend</Button>  
+     <TableView id="tableView1"/> 
+     </Window>
+ 	 
+	 </Tab>
+	 
+    <Tab id="tab3" onClick="show4"> 
+      <Window id="score">
+     <TableView id="tableView2"/> 
+     </Window>
+ 	 
+	 </Tab>
+	
+	  
+	  
+  </TabGroup>
+ 	
+ 	</Alloy>

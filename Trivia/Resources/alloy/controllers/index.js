@@ -16,7 +16,7 @@ function Controller() {
                 if (json.logged == 1) {
                     user_name = json.message;
                     alert(user_name);
-                    Alloy.createController("home").getView().open();
+                    Alloy.createController("gametype").getView().open();
                 } else alert("Wrong User/Password");
             };
         } else alert("Username/Password are required");
@@ -122,8 +122,10 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     var todos = Alloy.Collections.todo;
-    Ti.App.myGlobalVar = "user_name";
+    Ti.App.myGlobalVar = "user_name", "demo";
     Ti.App.myGlobalVar = "att_q";
+    Ti.App.myGlobalVar = "mul_q";
+    Ti.App.myGlobalVar = "numid1";
     var todos = Alloy.Collections.todo;
     $.todoWin.open();
     __defers["$.__views.Login!click!login_user"] && $.__views.Login.addEventListener("click", login_user);

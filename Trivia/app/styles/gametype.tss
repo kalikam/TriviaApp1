@@ -1,0 +1,13 @@
+"#button11":{
+			top:"120dp",
+		  	width:"120dp",	
+			height:"40dp",
+			left:"20dp"
+		   
+		   },
+		   	"#button21":{
+		   	top:"180dp",
+		   width:"120dp",
+			height:"40dp",
+			left:"20dp"
+		   }

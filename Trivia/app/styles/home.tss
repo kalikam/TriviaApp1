@@ -42,7 +42,44 @@
 		fontSize: '24dp',
 		fontWeight: 'bold'
 	}
+},"#tabGroup":{ 
+
+       backgroundColor:"black", 
+      height:"10dp",
+}, 
+
+"#View":{     
+
+       layout:'vertical', 
+
+}, 
+
+"#tab1":{ 
+
+       title:"Category", 
+
+       //icon:"KS_nav_ui.png", 
+       height:"10dp",
+}, 
+
+
+"#tab2":{ 
+
+       title:"High Score", 
+
+      // icon:"KS_nav_ui.png", 
+height:"10dp",
+}, 
+
+"#tableView":{ 
+
+        
+
+},
+"#multiplayer1":{ 
+
+},
+"#tab3":{ 
+       title:"Multiplayer", 
 }
-	
-	
-	
+

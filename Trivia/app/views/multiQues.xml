@@ -1,0 +1,39 @@
+ <Alloy>
+
+<Window id="movie" onLoad="loaddata">
+	
+	<!--<Label id="back"  onClick="closeWindow"></Label>-->
+               <View id="addView" onClick="closeWindow">
+                <ImageView id="addImage"/>
+         </View>
+        
+        <Label id="ques" text="Question"/>	
+        <View>
+        <Label id="a" />	
+        <Button id="addA" onClick="check1"/>	
+        
+        
+        
+        <Label id="b"  />	
+        <Button id="addB"onClick="check2" />	
+        
+        
+        <Label id="c"  />
+        <Button id="addC" onClick="check3" />	
+        
+         <Label id="d"  />
+        <Button id="addD" onClick="check4"/>	
+     
+        
+        
+        <Label id="hint"/>
+              
+        <Button id="next" onClick="loaddata">
+        <Button id="confirm" onClick="confirm_ans"/>
+        <Button id="cancle"/>	
+        <Label id="correct"/>
+        <Label id="wrong"/>
+         </View>
+	</Window>
+	</Alloy>
+

@@ -1,7 +1,10 @@
   <Alloy>
-	<Window id="addView">
+  	  
+<TabGroup id="tabGroup">
+	<Tab id="tab1">
+  	   	<Window id="addView">
 	
-<!-->	<Label id="catlabel" >Select Categorie</Label>-->
+
 	<View id="header">
             <Label id="title">Select Category</Label>
         </View>
@@ -9,4 +12,18 @@
 	<Button id="Politics" onClick="politics"/>
 	<Button id="Sports" onClick="sports"/>
 	 </Window>
+	  </Tab>
+	  
+	     <Tab id="tab2"> 
+           	   <Window id="score" onFocus="show">
+	<View id="header">
+            <Label id="title">Score List</Label>
+        </View>
+     <TableView id="tableView"/> 
+ 	</Window>
+   </Tab>
+
+              
+
+	  </TabGroup>
 	</Alloy>
