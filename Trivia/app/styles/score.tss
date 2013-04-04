@@ -37,7 +37,7 @@
 
 "#tableView":{ 
 
-       headerTitle : 'Top 10 marks', 
+       headerTitle : 'Top 5 marks', 
     
 
 }, 
@@ -70,10 +70,8 @@
 
 },
 "#Home":{ 
-
- 
-
-       top:"120dp", 
+         title:"Home",  
+       top:"180dp", 
        
        align:"center",
        

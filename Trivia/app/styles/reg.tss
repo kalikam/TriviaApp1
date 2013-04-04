@@ -33,12 +33,18 @@
 	layout: 'vertical',
 	barColor: '#a00'
 },
-"#reg":{
-	top: "20dp",
-	width: "50dp",
-    left:"50dp",
-	
-}
+"#Submitt":{
+	top:"20dp",
+	width:"100dp",
+    align:"center",
+	},
+"#Cancel":{
+	top:"15dp",
+	width:"100dp",
+	align:"center",
+    
+	}
+
 	
 
 

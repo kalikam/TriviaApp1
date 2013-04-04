@@ -8,7 +8,7 @@
             
             </View>
         	      <View> 
-        		  <TextField id="email" hintText="Email"/>  
+        		  <TextField id="email" hintText="Enter Email/UserId"/>  
                    <TextField id="password" hintText="Password" passwordMask="true"/> 
                    <Button id="Login" onClick="login_user">Login</Button>
                     </View> 	

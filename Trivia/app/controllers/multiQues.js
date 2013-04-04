@@ -1,13 +1,18 @@
 
 var todos = Alloy.Collections.todo;
 var total=0;
-var quest=0;
+var att_q=1;
 var selection = 0;
 var ans1,ans2,ans3,ans4,hint,answer,mul_q,numid1;
 var m=1;
 
 function loaddata()
-{ 
+{
+	if(att_q>5)
+	{
+             	Alloy.createController("score").getView().open();
+    }
+	 
 	$.correct.backgroundImage='/tick_gray_64.png';
 	$.wrong.backgroundImage='/gray_x.png';
 	
@@ -55,7 +60,6 @@ function loaddata()
                     }
                     
 
-        quest = quest + 1;
            
                  };
 
@@ -110,6 +114,7 @@ function check4()
 function confirm_ans()
 { 
 	//alert(demo);
+	att_q =  att_q + 1;
 	switch(selection)
 	{ case 1:
 		answer = ans1;
@@ -128,12 +133,17 @@ function confirm_ans()
 	if(answer==hint)
 	
 	{      
-		alert("right");
 		
-	$.correct.backgroundImage='/tick.png';
+        	$.correct.backgroundImage='/tick.png';
+	       
+	       setTimeout(function(e){    
+            
+              loaddata();
+            },2000);
+
 	
-		 total=parseInt(total)+10; 
-		mul_q =  parseInt(mul_q) + 1;
+		     total=parseInt(total)+10; 
+		    
         	 	 var upScore = Titanium.Network.createHTTPClient();    	
                  upScore.open("POST","http://nxgninnovations.com/playground/update_score.php");
          
@@ -171,9 +181,13 @@ function confirm_ans()
 	}
 	else
 	{
-		alert("Wrong ans");
+		//alert("Wrong ans");
 		$.wrong.backgroundImage='/red_x.png';
-	    
+	    	 setTimeout(function(e){    
+            
+              loaddata();
+            },2000);
+
 	}
 	
 }

@@ -1,25 +1,25 @@
 		"#Movie":{
 			title:"Movies",
 			top:"60dp",
-		  	width:"60dp",
+		  	width:"120dp",
 			height:"40dp",
-		    left:"5dp"
+		    align:"center"
 		  },
 		  	
 		  	"#Politics":{
 			title:"Politics",
 			top:"120dp",
-		  	width:"60dp",	
+		  	width:"120dp",	
 			height:"40dp",
-			left:"5dp"
+			 align:"center"
 		   
 		   },
 		   	"#Sports":{
 		   	title:"Sports",	
 			top:"180dp",
-		   width:"60dp",
+		   width:"120dp",
 			height:"40dp",
-			left:"5dp"
+			 align:"center"
 		   },
 "#header": {
 	top: 0,

@@ -15,7 +15,6 @@ function Controller() {
                 var json = JSON.parse(this.responseText), json1 = json.message;
                 if (json.logged == 1) {
                     user_name = json.message;
-                    alert(user_name);
                     Alloy.createController("gametype").getView().open();
                 } else alert("Wrong User/Password");
             };
@@ -80,7 +79,7 @@ function Controller() {
         width: "290dp",
         height: "50dp",
         id: "email",
-        hintText: "Email"
+        hintText: "Enter Email/UserId"
     });
     $.__views.__alloyId2.add($.__views.email);
     $.__views.password = Ti.UI.createTextField({
@@ -126,6 +125,7 @@ function Controller() {
     Ti.App.myGlobalVar = "att_q";
     Ti.App.myGlobalVar = "mul_q";
     Ti.App.myGlobalVar = "numid1";
+    Ti.App.myGlobalVar = "demo";
     var todos = Alloy.Collections.todo;
     $.todoWin.open();
     __defers["$.__views.Login!click!login_user"] && $.__views.Login.addEventListener("click", login_user);

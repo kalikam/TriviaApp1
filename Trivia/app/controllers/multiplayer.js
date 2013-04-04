@@ -58,8 +58,8 @@ function show()
                            var row = Ti.UI.createTableViewRow();  
                             var view1 = Ti.UI.createView({
                                          left : "0%",
-                                         width : "50%",
-                                         
+                                         width :'auto',
+                                         height:'auto',
                                          backgroundColor : "black"
                                         });
                             var label1 = Ti.UI.createLabel({
@@ -70,8 +70,8 @@ function show()
                             });
                             view1.add(label1);
                             var view2 = Ti.UI.createView({
-                                left : "50%",
-                                width : "50%",
+                                         width :'auto',
+                                         height:'auto',
                                 
                                  backgroundColor : "red"
                                });      
@@ -385,3 +385,58 @@ function show4()
 
 	
 }
+
+
+function send_req()
+{
+	
+	
+  var sendfrom=user_name;
+  var reqto=$.textF.value;
+  //alert(reqfrom);
+  alert(reqto);   
+  var sendit = Ti.Network.createHTTPClient({ 
+
+                     onerror: function(e){ 
+
+                           Ti.API.debug(e.error); 
+
+                           alert(e.error);
+                                                     
+                           alert('There was an error during the connection'); 
+
+                     }, 
+
+                  timeout:1000, 
+
+              });                      
+
+              //Here you have to change it for your local ip 
+
+              sendit.open('POST', 'http://nxgninnovations.com/playground/send_req.php');  
+
+               
+               var params = {  
+                sendfrom : sendfrom, sendto:reqto };
+                sendit.send(params); 
+                    
+      
+
+
+              //Function to be called upon a successful response 
+
+              sendit.onload = function(){ 
+
+                     var json = JSON.parse(this.responseText); 
+
+	
+                         var json1 = json.msg;  
+                         //alert(json1);
+
+                        }
+                  
+
+
+
+}
+

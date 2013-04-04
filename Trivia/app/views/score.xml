@@ -2,6 +2,6 @@
 <Window id="score" onFocus="show">
 	
      <TableView id="tableView"/> 
-     <Button id="Home" onClick="close">Home</Button> 
-	</Window>
+     <Button id="Home" onClick="home"/>
+      </Window>
 	</Alloy>

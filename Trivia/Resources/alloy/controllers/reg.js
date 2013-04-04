@@ -1,7 +1,6 @@
 function Controller() {
     function makeReg() {
         var todos = Alloy.Collections.todo, loginReq = Titanium.Network.createHTTPClient();
-        alert($.itemEmail.value);
         if ($.itemEmail.value != "" && $.itemPwd.value != "") {
             loginReq.open("POST", "http://nxgninnovations.com/playground/registration.php");
             var params = {
@@ -13,7 +12,7 @@ function Controller() {
             loginReq.send(params);
             loginReq.onload = function() {
                 var json = JSON.parse(this.responseText), json1 = json.msg;
-                alert(json1);
+                Alloy.createController("index").getView().open();
             };
         } else alert("Username/Password are required");
     }
@@ -82,32 +81,32 @@ function Controller() {
     });
     $.__views.addWin.add($.__views.itemPwd);
     closeKeyboard ? $.__views.itemPwd.addEventListener("return", closeKeyboard) : __defers["$.__views.itemPwd!return!closeKeyboard"] = !0;
-    $.__views.reg = Ti.UI.createButton({
+    $.__views.Submitt = Ti.UI.createButton({
         top: "20dp",
-        width: "50dp",
-        left: "50dp",
-        title: "Submitt",
-        id: "reg"
+        width: "100dp",
+        align: "center",
+        title: "Submit",
+        id: "Submitt"
     });
-    $.__views.addWin.add($.__views.reg);
-    makeReg ? $.__views.reg.addEventListener("click", makeReg) : __defers["$.__views.reg!click!makeReg"] = !0;
-    $.__views.reg = Ti.UI.createButton({
-        top: "20dp",
-        width: "50dp",
-        left: "50dp",
+    $.__views.addWin.add($.__views.Submitt);
+    makeReg ? $.__views.Submitt.addEventListener("click", makeReg) : __defers["$.__views.Submitt!click!makeReg"] = !0;
+    $.__views.Cancel = Ti.UI.createButton({
+        top: "15dp",
+        width: "100dp",
+        align: "center",
         title: "Cancel",
-        id: "reg"
+        id: "Cancel"
     });
-    $.__views.addWin.add($.__views.reg);
-    closeWindow ? $.__views.reg.addEventListener("click", closeWindow) : __defers["$.__views.reg!click!closeWindow"] = !0;
+    $.__views.addWin.add($.__views.Cancel);
+    closeWindow ? $.__views.Cancel.addEventListener("click", closeWindow) : __defers["$.__views.Cancel!click!closeWindow"] = !0;
     exports.destroy = function() {};
     _.extend($, $.__views);
     __defers["$.__views.itemName!return!closeKeyboard"] && $.__views.itemName.addEventListener("return", closeKeyboard);
     __defers["$.__views.itemEmail!return!closeKeyboard"] && $.__views.itemEmail.addEventListener("return", closeKeyboard);
     __defers["$.__views.itemUser!return!closeKeyboard"] && $.__views.itemUser.addEventListener("return", closeKeyboard);
     __defers["$.__views.itemPwd!return!closeKeyboard"] && $.__views.itemPwd.addEventListener("return", closeKeyboard);
-    __defers["$.__views.reg!click!makeReg"] && $.__views.reg.addEventListener("click", makeReg);
-    __defers["$.__views.reg!click!closeWindow"] && $.__views.reg.addEventListener("click", closeWindow);
+    __defers["$.__views.Submitt!click!makeReg"] && $.__views.Submitt.addEventListener("click", makeReg);
+    __defers["$.__views.Cancel!click!closeWindow"] && $.__views.Cancel.addEventListener("click", closeWindow);
     _.extend($, exports);
 }
 

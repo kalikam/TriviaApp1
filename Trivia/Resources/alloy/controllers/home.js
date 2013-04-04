@@ -16,7 +16,6 @@ function Controller() {
         sendit1.send(params1);
         sendit1.onload = function() {
             var json = JSON.parse(this.responseText), json1 = json.msg;
-            alert(json1);
         };
     }
     function show1() {
@@ -82,14 +81,12 @@ function Controller() {
         Alloy.createController("pol").getView().open();
         var p = 2;
         att_q = 1;
-        alert(p);
         total = 0;
     }
     function sports() {
         Alloy.createController("sport").getView().open();
         var s = 3;
         att_q = 1;
-        alert(s);
         total = 0;
     }
     function show() {
@@ -184,9 +181,9 @@ function Controller() {
     $.__views.Movie = Ti.UI.createButton({
         title: "Movies",
         top: "60dp",
-        width: "60dp",
+        width: "120dp",
         height: "40dp",
-        left: "5dp",
+        align: "center",
         id: "Movie"
     });
     $.__views.addView.add($.__views.Movie);
@@ -194,9 +191,9 @@ function Controller() {
     $.__views.Politics = Ti.UI.createButton({
         title: "Politics",
         top: "120dp",
-        width: "60dp",
+        width: "120dp",
         height: "40dp",
-        left: "5dp",
+        align: "center",
         id: "Politics"
     });
     $.__views.addView.add($.__views.Politics);
@@ -204,9 +201,9 @@ function Controller() {
     $.__views.Sports = Ti.UI.createButton({
         title: "Sports",
         top: "180dp",
-        width: "60dp",
+        width: "120dp",
         height: "40dp",
-        left: "5dp",
+        align: "center",
         id: "Sports"
     });
     $.__views.addView.add($.__views.Sports);

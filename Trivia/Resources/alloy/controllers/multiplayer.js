@@ -20,7 +20,8 @@ function Controller() {
             for (var i = 0; i < json.length; i++) {
                 var row = Ti.UI.createTableViewRow(), view1 = Ti.UI.createView({
                     left: "0%",
-                    width: "50%",
+                    width: "auto",
+                    height: "auto",
                     backgroundColor: "black"
                 }), label1 = Ti.UI.createLabel({
                     color: "white",
@@ -28,8 +29,8 @@ function Controller() {
                 });
                 view1.add(label1);
                 var view2 = Ti.UI.createView({
-                    left: "50%",
-                    width: "50%",
+                    width: "auto",
+                    height: "auto",
                     backgroundColor: "red"
                 }), cat = Ti.UI.createButton({
                     title: "Play",
@@ -189,6 +190,28 @@ function Controller() {
             $.tableView2.setData(dataArray);
         };
     }
+    function send_req() {
+        var sendfrom = user_name, reqto = $.textF.value;
+        alert(reqto);
+        var sendit = Ti.Network.createHTTPClient({
+            onerror: function(e) {
+                Ti.API.debug(e.error);
+                alert(e.error);
+                alert("There was an error during the connection");
+            },
+            timeout: 1000
+        });
+        sendit.open("POST", "http://nxgninnovations.com/playground/send_req.php");
+        var params = {
+            sendfrom: sendfrom,
+            sendto: reqto
+        };
+        sendit.send(params);
+        sendit.onload = function() {
+            var json = JSON.parse(this.responseText), json1 = json.msg;
+            alert(json1);
+        };
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {}, __defers = {};
@@ -215,13 +238,17 @@ function Controller() {
         backgroundColor: "#fff",
         id: "score"
     });
+    $.__views.tableView1 = Ti.UI.createTableView({
+        id: "tableView1"
+    });
+    $.__views.score.add($.__views.tableView1);
     $.__views.textF = Ti.UI.createTextField({
         top: "150dp",
         align: "center",
         width: "180dp",
         height: "40dp",
         id: "textF",
-        hintText: "Friend Id"
+        borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED
     });
     $.__views.score.add($.__views.textF);
     $.__views.invite = Ti.UI.createButton({
@@ -233,10 +260,7 @@ function Controller() {
         id: "invite"
     });
     $.__views.score.add($.__views.invite);
-    $.__views.tableView1 = Ti.UI.createTableView({
-        id: "tableView1"
-    });
-    $.__views.score.add($.__views.tableView1);
+    send_req ? $.__views.invite.addEventListener("click", send_req) : __defers["$.__views.invite!click!send_req"] = !0;
     $.__views.tab2 = Ti.UI.createTab({
         title: "Send Request",
         height: "10dp",
@@ -266,6 +290,7 @@ function Controller() {
     var todos = Alloy.Collections.todo;
     Ti.App.myGlobalVar = "numid1";
     __defers["$.__views.score!focus!show"] && $.__views.score.addEventListener("focus", show);
+    __defers["$.__views.invite!click!send_req"] && $.__views.invite.addEventListener("click", send_req);
     __defers["$.__views.tab2!click!show3"] && $.__views.tab2.addEventListener("click", show3);
     __defers["$.__views.tab3!click!show4"] && $.__views.tab3.addEventListener("click", show4);
     _.extend($, exports);

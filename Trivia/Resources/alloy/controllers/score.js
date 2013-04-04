@@ -43,6 +43,9 @@ function Controller() {
     function close() {
         $.addView.open();
     }
+    function home() {
+        Alloy.createController("home").getView().open();
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {}, __defers = {};
@@ -53,25 +56,25 @@ function Controller() {
     $.addTopLevelView($.__views.score);
     show ? $.__views.score.addEventListener("focus", show) : __defers["$.__views.score!focus!show"] = !0;
     $.__views.tableView = Ti.UI.createTableView({
-        headerTitle: "Top 10 marks",
+        headerTitle: "Top 5 marks",
         id: "tableView"
     });
     $.__views.score.add($.__views.tableView);
     $.__views.Home = Ti.UI.createButton({
-        top: "120dp",
+        title: "Home",
+        top: "180dp",
         align: "center",
         width: "80dp",
         height: "40dp",
-        title: "Home",
         id: "Home"
     });
     $.__views.score.add($.__views.Home);
-    close ? $.__views.Home.addEventListener("click", close) : __defers["$.__views.Home!click!close"] = !0;
+    home ? $.__views.Home.addEventListener("click", home) : __defers["$.__views.Home!click!home"] = !0;
     exports.destroy = function() {};
     _.extend($, $.__views);
     var todos = Alloy.Collections.todo, dataArray = [];
     __defers["$.__views.score!focus!show"] && $.__views.score.addEventListener("focus", show);
-    __defers["$.__views.Home!click!close"] && $.__views.Home.addEventListener("click", close);
+    __defers["$.__views.Home!click!home"] && $.__views.Home.addEventListener("click", home);
     _.extend($, exports);
 }
 

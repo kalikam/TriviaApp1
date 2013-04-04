@@ -1,11 +1,9 @@
  <Alloy>
 
-<Window id="pol" onLoad="loaddata">
+<Window id="pol" onFocus="loaddata">
 	
 	<!--<Label id="back"  onClick="closeWindow"></Label>-->
-               <View id="addView" onClick="closeWindow">
-                <ImageView id="addImage"/>
-         </View>
+              
         
         <Label id="ques" text="Question"/>	
         <View>
@@ -26,10 +24,9 @@
      
         <Label id="hint"/>
               
-        <Button id="next" onClick="loaddata"/>
+        
         <Button id="confirm" onClick="confirm_ans"/>
-        <Button id="cancle"/>	
-         <Label id="correct"/>
+       	 <Label id="correct"/>
         <Label id="wrong"/>
          </View>
 	</Window>

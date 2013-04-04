@@ -1,12 +1,9 @@
  <Alloy>
 
-<Window id="movie" onLoad="loaddata">
+<Window id="movie" onFocus="loaddata">
 	
 	<!--<Label id="back"  onClick="closeWindow"></Label>-->
-               <View id="addView" onClick="closeWindow">
-                <ImageView id="addImage"/>
-         </View>
-        
+               
         <Label id="ques" text="Question"/>	
         <View>
         <Label id="a" />	
@@ -18,7 +15,7 @@
         <Button id="addB"onClick="check2" />	
         
         
-        <Label id="c"  />
+        <Label id="c"/>
         <Button id="addC" onClick="check3" />	
         
          <Label id="d"  />
@@ -28,9 +25,7 @@
         
         <Label id="hint"/>
               
-        <Button id="next" onClick="loaddata">
         <Button id="confirm" onClick="confirm_ans"/>
-        <Button id="cancle"/>	
         <Label id="correct"/>
         <Label id="wrong"/>
          </View>

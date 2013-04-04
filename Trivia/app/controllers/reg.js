@@ -5,7 +5,7 @@ function makeReg() {
  
      var loginReq = Titanium.Network.createHTTPClient();  
      
-     alert($.itemEmail.value);
+    
   
  
         if ($.itemEmail.value != '' && $.itemPwd.value != '')  
@@ -26,8 +26,7 @@ function makeReg() {
 
                      var json1 = json.msg; 
                      
-                     alert(json1);
-
+                    Alloy.createController("index").getView().open();
                                         
                     } //if the database is empty show an alert 
 

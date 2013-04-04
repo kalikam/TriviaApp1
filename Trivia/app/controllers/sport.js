@@ -2,11 +2,16 @@
 var todos = Alloy.Collections.todo;
 var total=0;
 var selection = 0;
+var att_q=1;
 var ans1,ans2,ans3,ans4,hint,answer;
 var s=3;
 
 function loaddata()
 {
+	if(att_q>5)
+	{
+             	Alloy.createController("score").getView().open();
+    }
 	
 	
 	$.correct.backgroundImage='/tick_gray_64.png';
@@ -107,7 +112,9 @@ function check4()
 
 
 function confirm_ans()
-{ switch(selection)
+{
+	att_q =  parseInt(att_q) + 1;
+	 switch(selection)
 	{ case 1:
 		answer = ans1;
 		break;
@@ -131,8 +138,16 @@ function confirm_ans()
 	
 	
 		    total=parseInt(total)+10; 
-		att_q =  parseInt(att_q) + 1;
+		
        // alert(att_q);
+       setTimeout(function(e){    
+            
+              loaddata();
+            },2000);
+	
+   
+       
+       
         if(parseInt(att_q)>5)
         { 
         	 	
@@ -174,8 +189,12 @@ function confirm_ans()
 	}
 	else
 	{
-		alert("Wrong ans");
+	
 	    	$.wrong.backgroundImage='/red_x.png';
+        	 setTimeout(function(e){    
+            
+              loaddata();
+            },2000);
 
 	}
 	

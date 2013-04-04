@@ -103,3 +103,10 @@ function close()
 	
 }
 
+function home()
+{
+	
+	        	Alloy.createController("home").getView().open();
+
+}
+

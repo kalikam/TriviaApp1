@@ -3,7 +3,7 @@ Ti.App.myGlobalVar='user_name','demo';
 Ti.App.myGlobalVar='att_q';
 Ti.App.myGlobalVar='mul_q';
 Ti.App.myGlobalVar='numid1';
-
+Ti.App.myGlobalVar='demo';
 function goReg() 
 {
   	Alloy.createController("reg").getView().open();
@@ -41,7 +41,7 @@ function login_user()
                     if(json.logged==true) {
                     	 
                     	user_name=json.message;
-                    	alert(user_name);
+                    	
                          Alloy.createController("gametype").getView().open();
                     } else{
                     	alert("Wrong User/Password");

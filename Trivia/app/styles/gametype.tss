@@ -1,13 +1,12 @@
 "#button11":{
-			top:"120dp",
+			top:"60dp",
 		  	width:"120dp",	
 			height:"40dp",
-			left:"20dp"
-		   
+			align:"center"
 		   },
 		   	"#button21":{
-		   	top:"180dp",
+		   	top:"120dp",
 		   width:"120dp",
 			height:"40dp",
-			left:"20dp"
+			align:"center"
 		   }

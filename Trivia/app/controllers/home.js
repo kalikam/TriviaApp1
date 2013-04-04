@@ -38,7 +38,7 @@ function test()
 
                      var json1 = json.msg;
                      
-                     alert(json1);
+                    // alert(json1);
                      //if the database is empty show an alert 
 
               }                      
@@ -158,7 +158,7 @@ function politics()
 	Alloy.createController("pol").getView().open();
 	var p=2;
     att_q=1;
-	alert(p);
+	//alert(p);
 	total = 0;
 }
 
@@ -168,7 +168,7 @@ function sports()
  Alloy.createController("sport").getView().open();
 	var s=3;
 	att_q=1;
-	alert(s);
+	//alert(s);
 	total = 0;
 }
 function show()

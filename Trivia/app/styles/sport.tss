@@ -44,25 +44,25 @@
 	top: '20dp'
 },
 "#ques": {
-		   top:"80dp",
+		   top:"50dp",
 		   width:"280dp",
 			height:"40dp",
 			left:"30dp"
 		  },
 		  "#a": {
-		   top:"120dp",
+		   top:"90dp",
 		   width:"400dp",
 			height:"40dp",
 		   left:"70dp"
 		  },
 		  "#b": {
-		   top:"150dp",
+		   top:"130dp",
 		   width:"400dp",
 			height:"40dp",
 		   left:"70dp"
 		  },
 		  "#c": {
-		   top:"180dp",
+		   top:"170dp",
 		   width:"400dp",
 			height:"40dp",
 		   left:"70dp"
@@ -90,9 +90,9 @@
 		  },
 		  "#confirm": {
 		   top:"300dp",
-		   width:"80dp",
+		   width:"150dp",
 			height:"40dp",
-		   left:"50dp",
+		   align:"center",
 		   title:"Confirm",
 		  },
 		  ,
@@ -134,23 +134,25 @@
 		   top:"300dp",
 		   width:"80dp",
 			height:"40dp",
-		   left:"53dp",
+		   align:"center",
 		   title:"Confirm"
 		  },
 		  "#correct": {
-		   top:"350dp",
+		   top:"320dp",
 		   width:"80dp",
 			height:"40dp",
-		   left:"50dp",
-		   image:"/tick.png" 
+		    left:"50dp",
+		    
 		  },
 		  "#wrong": {
-		   top:"350dp",
+		   top:"320dp",
 		   width:"80dp",
 			height:"40dp",
 		   left:"190dp",
-		   image:"/red_x.png" 
+		    
 		  }
+		  
+		  
 		  
 		  
 		  

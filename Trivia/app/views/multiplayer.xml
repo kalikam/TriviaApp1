@@ -15,9 +15,12 @@
 	  <Tab id="tab2" onClick="show3"> 
     
     <Window id="score">
-    <TextField id="textF" hintText="Friend Id"/>
-     <Button id="invite">Invite Friend</Button>  
-     <TableView id="tableView1"/> 
+    
+     <TableView id="tableView1"/>
+      
+      <TextField id="textF" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"/>
+       <Button id="invite" onClick="send_req" >Invite Friend</Button>  
+      
      </Window>
  	 
 	 </Tab>

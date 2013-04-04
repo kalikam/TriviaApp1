@@ -15,20 +15,20 @@ function Controller() {
     });
     $.addTopLevelView($.__views.typeWin);
     $.__views.button11 = Ti.UI.createButton({
-        top: "120dp",
+        top: "60dp",
         width: "120dp",
         height: "40dp",
-        left: "20dp",
+        align: "center",
         title: "Single Player",
         id: "button11"
     });
     $.__views.typeWin.add($.__views.button11);
     single ? $.__views.button11.addEventListener("click", single) : __defers["$.__views.button11!click!single"] = !0;
     $.__views.button21 = Ti.UI.createButton({
-        top: "180dp",
+        top: "120dp",
         width: "120dp",
         height: "40dp",
-        left: "20dp",
+        align: "center",
         title: "Multi Player",
         id: "button21"
     });
