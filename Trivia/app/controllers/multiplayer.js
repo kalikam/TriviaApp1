@@ -22,7 +22,7 @@ function show()
 
               //Here you have to change it for your local ip 
 
-              sendit.open('POST', 'http://nxgninnovations.com/playground/frnd_req.php');  
+              sendit.open('POST', 'http://nxgninnovations.com/playground/trivia/frnd_req.php');  
 
                
                var params = {  
@@ -102,7 +102,7 @@ function show()
 
               });   
               
-        play.open('POST', 'http://nxgninnovations.com/playground/frnd_req_update.php');       
+        play.open('POST', 'http://nxgninnovations.com/playground/trivia/frnd_req_update.php');       
      
       var params = {  
                 numid : e.source.numid1 };
@@ -161,7 +161,7 @@ function show3()
 
               //Here you have to change it for your local ip 
 
-              sendit.open('POST', 'http://nxgninnovations.com/playground/frnd_request1.php');  
+              sendit.open('POST', 'http://nxgninnovations.com/playground/trivia/frnd_request1.php');  
 
                
                var params = {  
@@ -279,7 +279,7 @@ function show4()
 
               //Here you have to change it for your local ip 
 
-              sendit.open('POST', 'http://nxgninnovations.com/playground/multiscore.php');  
+              sendit.open('POST', 'http://nxgninnovations.com/playground/trivia/multiscore.php');  
 
                
                var params = {  
@@ -413,7 +413,7 @@ function send_req()
 
               //Here you have to change it for your local ip 
 
-              sendit.open('POST', 'http://nxgninnovations.com/playground/send_req.php');  
+              sendit.open('POST', 'http://nxgninnovations.com/playground/trivia/send_req.php');  
 
                
                var params = {  

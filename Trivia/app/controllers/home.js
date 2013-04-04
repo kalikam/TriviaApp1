@@ -25,7 +25,7 @@ function test()
 
               //Here you have to change it for your local ip 
 
-              sendit1.open('POST', 'http://nxgninnovations.com/playground/send_req.php');  
+              sendit1.open('POST', 'http://nxgninnovations.com/playground/trivia/send_req.php');  
 
               var params1 = { sendfrom : user1, sendto : user2, status : '0'};
                 
@@ -70,7 +70,7 @@ function show1()
               //Here you have to change it for your local ip 
               alert(user1);
 
-              conn.open('POST', 'http://nxgninnovations.com/playground/frnd_req.php');  
+              conn.open('POST', 'http://nxgninnovations.com/playground/trivia/frnd_req.php');  
 
 
               var params1 = { user : user1};
@@ -192,7 +192,7 @@ function show()
 
               //Here you have to change it for your local ip 
 
-              sendit.open('POST', 'http://nxgninnovations.com/playground/show_score.php');  
+              sendit.open('POST', 'http://nxgninnovations.com/playground/trivia/show_score.php');  
               
           
               sendit.send(); 

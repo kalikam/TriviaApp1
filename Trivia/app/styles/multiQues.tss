@@ -50,19 +50,19 @@
 			left:"30dp"
 		  },
 		  "#a": {
-		   top:"90dp",
+		   top:"120dp",
 		   width:"400dp",
 			height:"40dp",
 		   left:"70dp"
 		  },
 		  "#b": {
-		   top:"130dp",
+		   top:"150dp",
 		   width:"400dp",
 			height:"40dp",
 		   left:"70dp"
 		  },
 		  "#c": {
-		   top:"170dp",
+		   top:"180dp",
 		   width:"400dp",
 			height:"40dp",
 		   left:"70dp"
@@ -138,28 +138,18 @@
 		   title:"Confirm"
 		  },
 		  "#correct": {
-		   top:"320dp",
+		   top:"350dp",
 		   width:"80dp",
 			height:"40dp",
 		    left:"50dp",
 		    
 		  },
 		  "#wrong": {
-		   top:"320dp",
+		   top:"350dp",
 		   width:"80dp",
 			height:"40dp",
 		   left:"190dp",
 		    
 		  }
 		  
-		  
-		  
-		  
-		  
-		   
-		   
-		   
-		   
-
-
-
+	

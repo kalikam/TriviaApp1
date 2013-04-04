@@ -25,7 +25,7 @@ function login_user()
  
         if ($.email.value != '' && $.password.value != '')  
         {  
-            loginReq.open("POST","http://nxgninnovations.com/playground/login.php");  
+            loginReq.open("POST","http://nxgninnovations.com/playground/trivia/login.php");  
             var params = {  
                 email : $.email.value,
                 password: $.password.value

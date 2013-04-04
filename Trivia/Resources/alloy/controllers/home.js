@@ -7,7 +7,7 @@ function Controller() {
                 alert("There was an error during the connection");
             }
         });
-        sendit1.open("POST", "http://nxgninnovations.com/playground/send_req.php");
+        sendit1.open("POST", "http://nxgninnovations.com/playground/trivia/send_req.php");
         var params1 = {
             sendfrom: user1,
             sendto: user2,
@@ -28,7 +28,7 @@ function Controller() {
             timeout: 1000
         });
         alert(user1);
-        conn.open("POST", "http://nxgninnovations.com/playground/frnd_req.php");
+        conn.open("POST", "http://nxgninnovations.com/playground/trivia/frnd_req.php");
         var params1 = {
             user: user1
         };
@@ -98,7 +98,7 @@ function Controller() {
             },
             timeout: 1000
         });
-        sendit.open("POST", "http://nxgninnovations.com/playground/show_score.php");
+        sendit.open("POST", "http://nxgninnovations.com/playground/trivia/show_score.php");
         sendit.send();
         sendit.onload = function() {
             var json = JSON.parse(this.responseText), json = json.test;

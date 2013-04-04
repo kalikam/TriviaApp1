@@ -8,7 +8,7 @@ function Controller() {
             },
             timeout: 1000
         });
-        sendit.open("POST", "http://nxgninnovations.com/playground/frnd_req.php");
+        sendit.open("POST", "http://nxgninnovations.com/playground/trivia/frnd_req.php");
         var params = {
             user: user
         };
@@ -48,7 +48,7 @@ function Controller() {
                         },
                         timeout: 1000
                     });
-                    play.open("POST", "http://nxgninnovations.com/playground/frnd_req_update.php");
+                    play.open("POST", "http://nxgninnovations.com/playground/trivia/frnd_req_update.php");
                     var params = {
                         numid: e.source.numid1
                     };
@@ -75,7 +75,7 @@ function Controller() {
             },
             timeout: 1000
         });
-        sendit.open("POST", "http://nxgninnovations.com/playground/frnd_request1.php");
+        sendit.open("POST", "http://nxgninnovations.com/playground/trivia/frnd_request1.php");
         var params = {
             user: user
         };
@@ -135,7 +135,7 @@ function Controller() {
             },
             timeout: 1000
         });
-        sendit.open("POST", "http://nxgninnovations.com/playground/multiscore.php");
+        sendit.open("POST", "http://nxgninnovations.com/playground/trivia/multiscore.php");
         var params = {
             user: user
         };
@@ -201,7 +201,7 @@ function Controller() {
             },
             timeout: 1000
         });
-        sendit.open("POST", "http://nxgninnovations.com/playground/send_req.php");
+        sendit.open("POST", "http://nxgninnovations.com/playground/trivia/send_req.php");
         var params = {
             sendfrom: sendfrom,
             sendto: reqto
@@ -209,7 +209,6 @@ function Controller() {
         sendit.send(params);
         sendit.onload = function() {
             var json = JSON.parse(this.responseText), json1 = json.msg;
-            alert(json1);
         };
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));

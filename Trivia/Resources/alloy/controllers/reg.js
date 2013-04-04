@@ -2,7 +2,7 @@ function Controller() {
     function makeReg() {
         var todos = Alloy.Collections.todo, loginReq = Titanium.Network.createHTTPClient();
         if ($.itemEmail.value != "" && $.itemPwd.value != "") {
-            loginReq.open("POST", "http://nxgninnovations.com/playground/registration.php");
+            loginReq.open("POST", "http://nxgninnovations.com/playground/trivia/registration.php");
             var params = {
                 email: $.itemEmail.value,
                 username: $.itemUser.value,

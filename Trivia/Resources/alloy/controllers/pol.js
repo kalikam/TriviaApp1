@@ -4,7 +4,7 @@ function Controller() {
         $.correct.backgroundImage = "/tick_gray_64.png";
         $.wrong.backgroundImage = "/gray_x.png";
         var p = 2, dataReq = Titanium.Network.createHTTPClient();
-        dataReq.open("POST", "http://nxgninnovations.com/playground/fetch.php");
+        dataReq.open("POST", "http://nxgninnovations.com/playground/trivia/fetch.php");
         var params = {
             id: p
         };
@@ -79,7 +79,7 @@ function Controller() {
             }, 2000);
             if (parseInt(att_q) > 5) {
                 var upScore = Titanium.Network.createHTTPClient();
-                upScore.open("POST", "http://nxgninnovations.com/playground/add_score.php");
+                upScore.open("POST", "http://nxgninnovations.com/playground/trivia/add_score.php");
                 var params = {
                     user: user_name,
                     total: total,
@@ -126,7 +126,7 @@ function Controller() {
     $.__views.pol.add($.__views.__alloyId5);
     $.__views.a = Ti.UI.createLabel({
         color: "#000",
-        top: "90dp",
+        top: "120dp",
         width: "400dp",
         height: "40dp",
         left: "70dp",
@@ -144,7 +144,7 @@ function Controller() {
     check1 ? $.__views.addA.addEventListener("click", check1) : __defers["$.__views.addA!click!check1"] = !0;
     $.__views.b = Ti.UI.createLabel({
         color: "#000",
-        top: "130dp",
+        top: "150dp",
         width: "400dp",
         height: "40dp",
         left: "70dp",
@@ -162,7 +162,7 @@ function Controller() {
     check2 ? $.__views.addB.addEventListener("click", check2) : __defers["$.__views.addB!click!check2"] = !0;
     $.__views.c = Ti.UI.createLabel({
         color: "#000",
-        top: "170dp",
+        top: "180dp",
         width: "400dp",
         height: "40dp",
         left: "70dp",
@@ -218,7 +218,7 @@ function Controller() {
     confirm_ans ? $.__views.confirm.addEventListener("click", confirm_ans) : __defers["$.__views.confirm!click!confirm_ans"] = !0;
     $.__views.correct = Ti.UI.createLabel({
         color: "#000",
-        top: "320dp",
+        top: "350dp",
         width: "80dp",
         height: "40dp",
         left: "50dp",
@@ -227,7 +227,7 @@ function Controller() {
     $.__views.__alloyId5.add($.__views.correct);
     $.__views.wrong = Ti.UI.createLabel({
         color: "#000",
-        top: "320dp",
+        top: "350dp",
         width: "80dp",
         height: "40dp",
         left: "190dp",

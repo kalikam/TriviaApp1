@@ -8,7 +8,7 @@ function Controller() {
             },
             timeout: 1000
         });
-        sendit.open("POST", "http://nxgninnovations.com/playground/show_score.php");
+        sendit.open("POST", "http://nxgninnovations.com/playground/trivia/show_score.php");
         sendit.send();
         sendit.onload = function() {
             var json = JSON.parse(this.responseText), json = json.test;

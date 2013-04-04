@@ -23,7 +23,7 @@ function show()
 
               //Here you have to change it for your local ip 
 
-              sendit.open('POST', 'http://nxgninnovations.com/playground/show_score.php');  
+              sendit.open('POST', 'http://nxgninnovations.com/playground/trivia/show_score.php');  
 
               sendit.send(); 
 

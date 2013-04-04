@@ -21,7 +21,7 @@ function loaddata()
     
     var dataReq = Titanium.Network.createHTTPClient();    	
 
-      dataReq.open("POST","http://nxgninnovations.com/playground/fetch.php");
+      dataReq.open("POST","http://nxgninnovations.com/playground/trivia/fetch.php");
          
         var params = {  
                 id : m };
@@ -145,7 +145,7 @@ function confirm_ans()
 		     total=parseInt(total)+10; 
 		    
         	 	 var upScore = Titanium.Network.createHTTPClient();    	
-                 upScore.open("POST","http://nxgninnovations.com/playground/update_score.php");
+                 upScore.open("POST","http://nxgninnovations.com/playground/trivia/update_score.php");
          
                var params = {  
                 id : demo , user1 :user_name};
