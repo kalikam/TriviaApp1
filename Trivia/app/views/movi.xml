@@ -1,6 +1,9 @@
- <Alloy>
+  <Alloy>
+  	  
+<TabGroup id="tabGroup">
+	<Tab id="tab1">
 
-<Window id="movie" onFocus="loaddata">
+     <Window id="movie" onFocus="loaddata">
 	
 	<!--<Label id="back"  onClick="closeWindow"></Label>-->
                
@@ -28,6 +31,33 @@
         <Button id="confirm" onClick="confirm_ans"/>
         <Label id="correct"/>
         <Label id="wrong"/>
+        <Button id="next" onClick="next"/>
+        <Button id="back" onClick="back">
+        <Button id="skip" onClick="skip"> 
          </View>
 	</Window>
+
+	  </Tab>
+	
+	<Tab id="tab3"> 
+           	   <Window id="score">
+	<View id="header">
+            <Label id="title">Score List</Label>
+        </View>
+     <TableView id="tableView"/> 
+ 	</Window>
+   </Tab>
+  
+	     <Tab id="tab2"> 
+           	   <Window id="score" onFocus="show">
+	<View id="header">
+            <Label id="title">Score List</Label>
+        </View>
+     <TableView id="tableView"/> 
+ 	</Window>
+   </Tab>
+   
+              
+
+	  </TabGroup>
 	</Alloy>

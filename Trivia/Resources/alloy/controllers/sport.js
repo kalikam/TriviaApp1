@@ -123,10 +123,10 @@ function Controller() {
         text: "Question"
     });
     $.__views.pol.add($.__views.ques);
-    $.__views.__alloyId6 = Ti.UI.createView({
-        id: "__alloyId6"
+    $.__views.__alloyId7 = Ti.UI.createView({
+        id: "__alloyId7"
     });
-    $.__views.pol.add($.__views.__alloyId6);
+    $.__views.pol.add($.__views.__alloyId7);
     $.__views.a = Ti.UI.createLabel({
         color: "#000",
         top: "120dp",
@@ -135,7 +135,7 @@ function Controller() {
         left: "70dp",
         id: "a"
     });
-    $.__views.__alloyId6.add($.__views.a);
+    $.__views.__alloyId7.add($.__views.a);
     $.__views.addA = Ti.UI.createButton({
         top: "130dp",
         width: "20dp",
@@ -143,7 +143,7 @@ function Controller() {
         left: "30dp",
         id: "addA"
     });
-    $.__views.__alloyId6.add($.__views.addA);
+    $.__views.__alloyId7.add($.__views.addA);
     check1 ? $.__views.addA.addEventListener("click", check1) : __defers["$.__views.addA!click!check1"] = !0;
     $.__views.b = Ti.UI.createLabel({
         color: "#000",
@@ -153,7 +153,7 @@ function Controller() {
         left: "70dp",
         id: "b"
     });
-    $.__views.__alloyId6.add($.__views.b);
+    $.__views.__alloyId7.add($.__views.b);
     $.__views.addB = Ti.UI.createButton({
         top: "160dp",
         width: "20dp",
@@ -161,7 +161,7 @@ function Controller() {
         left: "30dp",
         id: "addB"
     });
-    $.__views.__alloyId6.add($.__views.addB);
+    $.__views.__alloyId7.add($.__views.addB);
     check2 ? $.__views.addB.addEventListener("click", check2) : __defers["$.__views.addB!click!check2"] = !0;
     $.__views.c = Ti.UI.createLabel({
         color: "#000",
@@ -171,7 +171,7 @@ function Controller() {
         left: "70dp",
         id: "c"
     });
-    $.__views.__alloyId6.add($.__views.c);
+    $.__views.__alloyId7.add($.__views.c);
     $.__views.addC = Ti.UI.createButton({
         top: "190dp",
         width: "20dp",
@@ -179,7 +179,7 @@ function Controller() {
         left: "30dp",
         id: "addC"
     });
-    $.__views.__alloyId6.add($.__views.addC);
+    $.__views.__alloyId7.add($.__views.addC);
     check3 ? $.__views.addC.addEventListener("click", check3) : __defers["$.__views.addC!click!check3"] = !0;
     $.__views.d = Ti.UI.createLabel({
         color: "#000",
@@ -189,7 +189,7 @@ function Controller() {
         left: "70dp",
         id: "d"
     });
-    $.__views.__alloyId6.add($.__views.d);
+    $.__views.__alloyId7.add($.__views.d);
     $.__views.addD = Ti.UI.createButton({
         top: "220dp",
         width: "20dp",
@@ -197,7 +197,7 @@ function Controller() {
         left: "30dp",
         id: "addD"
     });
-    $.__views.__alloyId6.add($.__views.addD);
+    $.__views.__alloyId7.add($.__views.addD);
     check4 ? $.__views.addD.addEventListener("click", check4) : __defers["$.__views.addD!click!check4"] = !0;
     $.__views.hint = Ti.UI.createLabel({
         color: "#000",
@@ -208,7 +208,7 @@ function Controller() {
         title: "Confirm",
         id: "hint"
     });
-    $.__views.__alloyId6.add($.__views.hint);
+    $.__views.__alloyId7.add($.__views.hint);
     $.__views.confirm = Ti.UI.createButton({
         top: "300dp",
         width: "150dp",
@@ -217,7 +217,7 @@ function Controller() {
         title: "Confirm",
         id: "confirm"
     });
-    $.__views.__alloyId6.add($.__views.confirm);
+    $.__views.__alloyId7.add($.__views.confirm);
     confirm_ans ? $.__views.confirm.addEventListener("click", confirm_ans) : __defers["$.__views.confirm!click!confirm_ans"] = !0;
     $.__views.correct = Ti.UI.createLabel({
         color: "#000",
@@ -227,7 +227,7 @@ function Controller() {
         left: "50dp",
         id: "correct"
     });
-    $.__views.__alloyId6.add($.__views.correct);
+    $.__views.__alloyId7.add($.__views.correct);
     $.__views.wrong = Ti.UI.createLabel({
         color: "#000",
         top: "350dp",
@@ -236,7 +236,7 @@ function Controller() {
         left: "190dp",
         id: "wrong"
     });
-    $.__views.__alloyId6.add($.__views.wrong);
+    $.__views.__alloyId7.add($.__views.wrong);
     exports.destroy = function() {};
     _.extend($, $.__views);
     var todos = Alloy.Collections.todo, total = 0, selection = 0, att_q = 1, ans1, ans2, ans3, ans4, hint, answer, s = 3;

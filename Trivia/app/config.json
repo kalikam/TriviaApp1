@@ -6,4 +6,5 @@
 	"os:ios": {}, 
 	"os:android": {}, 
 	"dependencies": {}
+
 }

@@ -1,0 +1,20 @@
+<Alloy>
+    <!-- Main Window -->
+    <Window id="todoWin" title="Todo">
+  	
+        <!-- header -->
+        <View id="header">
+            <Label id="title">Password Recovery</Label>
+            
+            </View>
+        	      <View> 
+        		 
+                   <TextField id="userid" hintText="userid" /> 
+                    <TextField id="email" hintText="Enter E-mail"/>  
+                   <Button id="submit" onClick="req_pass">Submitt</Button>
+                   <Button id="cancel" onClick="closeWindow">Back</Button> 
+                    </View> 	
+            
+        
+    </Window>
+</Alloy>

@@ -12,7 +12,10 @@ function Controller() {
             loginReq.send(params);
             loginReq.onload = function() {
                 var json = JSON.parse(this.responseText), json1 = json.msg;
-                Alloy.createController("index").getView().open();
+                if (json.status == 1) {
+                    alert(json1);
+                    Alloy.createController("index").getView().open();
+                } else alert(json1);
             };
         } else alert("Username/Password are required");
     }
@@ -77,7 +80,8 @@ function Controller() {
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
         returnKeyType: Ti.UI.RETURNKEY_DONE,
         id: "itemPwd",
-        hintText: "Enter your password"
+        hintText: "Enter your password",
+        passwordMask: "true"
     });
     $.__views.addWin.add($.__views.itemPwd);
     closeKeyboard ? $.__views.itemPwd.addEventListener("return", closeKeyboard) : __defers["$.__views.itemPwd!return!closeKeyboard"] = !0;

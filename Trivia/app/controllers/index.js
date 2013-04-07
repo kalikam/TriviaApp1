@@ -1,9 +1,15 @@
 var todos = Alloy.Collections.todo;
 Ti.App.myGlobalVar='user_name','demo';
-Ti.App.myGlobalVar='att_q';
+Ti.App.myGlobalVar='att_q','temp';
 Ti.App.myGlobalVar='mul_q';
 Ti.App.myGlobalVar='numid1';
 Ti.App.myGlobalVar='demo';
+Ti.App.myGlobalVar='qid';
+Ti.App.myGlobalVar='q';
+Ti.App.myGlobalVar='a1';
+Ti.App.myGlobalVar='permit';
+
+
 function goReg() 
 {
   	Alloy.createController("reg").getView().open();
@@ -16,6 +22,7 @@ $.todoWin.open();
 
 function login_user()
 {
+	 
 	 var todos = Alloy.Collections.todo;
  
     var loginReq = Titanium.Network.createHTTPClient();  
@@ -42,7 +49,7 @@ function login_user()
                     	 
                     	user_name=json.message;
                     	
-                         Alloy.createController("gametype").getView().open();
+                         Alloy.createController("home").getView().open();
                     } else{
                     	alert("Wrong User/Password");
                     }
@@ -64,4 +71,9 @@ function login_user()
             alert("Username/Password are required");  
         }  
 
+}
+
+function pass() 
+{
+  	Alloy.createController("pass").getView().open();
 }

@@ -26,7 +26,16 @@ function makeReg() {
 
                      var json1 = json.msg; 
                      
+                    if(json.status==1)
+                    {
+                    alert(json1);	
                     Alloy.createController("index").getView().open();
+                    
+                    }else{
+                    	
+                    	alert(json1);
+                    	
+                    }
                                         
                     } //if the database is empty show an alert 
 

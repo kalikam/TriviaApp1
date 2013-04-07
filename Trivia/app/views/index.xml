@@ -13,8 +13,12 @@
                    <Button id="Login" onClick="login_user">Login</Button>
                     </View> 	
              <View id="addReg"  onClick="goReg">
-              <Label id="reg">Register Here</Label>
+              <Label id="reg" color="red">Register Here</Label>
                </View>
+              
+              <View id="addpass" onClick="pass">
+             <Label id="pass" color="red">Forgot Password</Label>
+             </View>
                
          
         

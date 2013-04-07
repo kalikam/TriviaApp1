@@ -54,7 +54,7 @@
 },
 "#addReg": {
        top:"260dp", 
-       left:"10dp",
+       align:"center",
        width:"124dp", 
        height:"50dp", 
 },
@@ -67,11 +67,9 @@
 	touchEnabled: false
 
 },
-"#Login":{ 
+"#submit":{ 
 
-       title:"Login", 
-
-       top:"190dp", 
+          top:"190dp", 
 
        left:"10dp", 
 
@@ -80,21 +78,7 @@
        height:"50dp", 
 },
 "#email":{ 
-
-       color:"#336699", 
-
-       top:"60dp", 
-
-       left:"10dp", 
-
-       width:"290dp", 
-
-       height:"50dp", 
-
-},
-"#password":{ 
-
-       color:"#336699", 
+ color:"#336699", 
 
        top:"120dp", 
 
@@ -103,12 +87,37 @@
        width:"290dp", 
 
        height:"50dp", 
+},
+"#userid":{ 
+	
+	        color:"#336699", 
 
+       top:"60dp", 
+
+       left:"10dp", 
+
+       width:"290dp", 
+
+       height:"50dp"
+
+      
 },
 
 "#addpass": {
-       top:"260dp", 
-       right:"20dp",
+       top:"290dp", 
+       align:"center",
        width:"124dp", 
+       height:"50dp", 
+},
+"#cancel":{ 
+
+        
+
+       top:"250dp", 
+
+       left:"10dp", 
+
+       width:"290dp", 
+
        height:"50dp", 
 }
