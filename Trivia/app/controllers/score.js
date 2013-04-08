@@ -110,3 +110,50 @@ function home()
 
 }
 
+
+
+function get_score()
+
+{
+	  var c;
+	       var scr = Titanium.Network.createHTTPClient();  
+           scr.open("POST","http://nxgninnovations.com/playground/trivia/current_game_status.php");  
+            var params = {  
+                user: user_name,
+                };  
+            
+            scr.send(params);  
+            scr.onload = function()
+            { 
+
+                     var json = JSON.parse(this.responseText); 
+                      $.cans.text=json.correct;
+                      $.uncans.text=json.uncorrect;
+                      $.sk.text=json.skip;
+                       c=$.cans.text;                             
+                         
+            var per = Titanium.Network.createHTTPClient();  
+           per.open("POST","http://nxgninnovations.com/playground/trivia/performance.php");  
+            var params = {  
+                user:user_name,score:c
+                };  
+            
+            per.send(params);  
+            per.onload = function()
+            { 
+
+                     var json = JSON.parse(this.responseText); 
+                       $.msg.text=json.msg;          
+                   
+                      //alert(json.msg);
+                    
+                       }                    
+                    
+                     }  
+
+                    
+            }  
+       
+
+    
+

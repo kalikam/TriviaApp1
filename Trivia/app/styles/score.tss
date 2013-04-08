@@ -70,13 +70,96 @@
 
 },
 "#Home":{ 
-         title:"Home",  
-       top:"180dp", 
+         title:"New Game",  
+       top:"240dp", 
        
        align:"center",
        
+       width:"280dp", 
+
+       height:"40dp", 
+
+},"#correct":{ 
+          
+       top:"10dp", 
+       
+       //align:"center",
+      left:"40dp", 
        width:"80dp", 
 
        height:"40dp", 
 
+},"#uncorrect":{ 
+          
+       top:"50dp", 
+       
+       //align:"center",
+       left:"40dp",
+       width:"80dp", 
+
+       height:"40dp", 
+
+},"#skip":{ 
+          
+       top:"100dp", 
+       
+      // align:"center",
+       left:"40dp",
+       width:"80dp", 
+
+       height:"40dp", 
 }  
+ ,"#cans":{ 
+          
+       top:"10dp", 
+       
+      left:"150",
+       width:"80dp", 
+
+       height:"40dp", 
+
+} 
+ ,"#uncans":{ 
+          
+       top:"50dp", 
+       
+       left:"150",
+       width:"80dp", 
+
+       height:"40dp", 
+
+} 
+,"#sk":{ 
+          
+       top:"100dp", 
+       
+       left:"150",
+      
+       width:"80dp", 
+
+       height:"40dp", 
+
+} 
+,"#message":{ 
+          
+       top:"150dp", 
+       
+       left:"40",
+      
+       width:"80dp", 
+
+       height:"40dp", 
+
+} 
+,"#msg":{ 
+          
+       top:"150dp", 
+       
+       left:"150",
+      
+       width:"80dp", 
+
+       height:"40dp", 
+
+} 
+  

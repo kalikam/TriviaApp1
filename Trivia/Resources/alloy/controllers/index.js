@@ -140,14 +140,16 @@ function Controller() {
     _.extend($, $.__views);
     var todos = Alloy.Collections.todo;
     Ti.App.myGlobalVar = "user_name", "demo";
-    Ti.App.myGlobalVar = "att_q", "temp";
+    Ti.App.myGlobalVar = "att_q", "temp", "qid";
     Ti.App.myGlobalVar = "mul_q";
     Ti.App.myGlobalVar = "numid1";
-    Ti.App.myGlobalVar = "demo";
     Ti.App.myGlobalVar = "qid";
+    Ti.App.myGlobalVar = "demo";
     Ti.App.myGlobalVar = "q";
     Ti.App.myGlobalVar = "a1";
     Ti.App.myGlobalVar = "permit";
+    Ti.App.myGlobalVar = "back_q";
+    Ti.App.myGlobalVar = "next_q";
     var todos = Alloy.Collections.todo;
     $.todoWin.open();
     __defers["$.__views.Login!click!login_user"] && $.__views.Login.addEventListener("click", login_user);

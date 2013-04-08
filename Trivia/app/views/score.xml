@@ -1,7 +1,17 @@
 <Alloy>
-<Window id="score" onFocus="show">
+<Window id="score" onFocus="get_score">
 	
-     <TableView id="tableView"/> 
+    <!--<TableView id="tableView"/>-->
+     
      <Button id="Home" onClick="home"/>
-      </Window>
+     <Label id="correct">Correct :</Label>
+     <Label id="uncorrect">UnCorrect :</Label>
+     <Label id="skip">Skip :</Label>
+     <Label id="cans"/>
+     <Label id="uncans"/>
+     <Label id="sk"/>
+     <Label id="message">Message :</Label>
+     <Label id="msg"/>
+     
+     </Window>
 	</Alloy>
