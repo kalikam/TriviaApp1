@@ -364,12 +364,16 @@ function Controller() {
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {}, __defers = {};
-    $.__views.pol = Ti.UI.createWindow({
-        backgroundColor: "#fff",
-        id: "pol"
+    $.__views.tabGroup = Ti.UI.createTabGroup({
+        backgroundColor: "black",
+        height: "10dp",
+        id: "tabGroup"
     });
-    $.addTopLevelView($.__views.pol);
-    loaddata ? $.__views.pol.addEventListener("focus", loaddata) : __defers["$.__views.pol!focus!loaddata"] = !0;
+    $.__views.movie = Ti.UI.createWindow({
+        backgroundColor: "#fff",
+        id: "movie"
+    });
+    loaddata ? $.__views.movie.addEventListener("focus", loaddata) : __defers["$.__views.movie!focus!loaddata"] = !0;
     $.__views.ques = Ti.UI.createLabel({
         color: "#000",
         top: "50dp",
@@ -379,11 +383,11 @@ function Controller() {
         id: "ques",
         text: "Question"
     });
-    $.__views.pol.add($.__views.ques);
+    $.__views.movie.add($.__views.ques);
     $.__views.__alloyId6 = Ti.UI.createView({
         id: "__alloyId6"
     });
-    $.__views.pol.add($.__views.__alloyId6);
+    $.__views.movie.add($.__views.__alloyId6);
     $.__views.a = Ti.UI.createLabel({
         color: "#000",
         top: "120dp",
@@ -458,10 +462,10 @@ function Controller() {
     check4 ? $.__views.addD.addEventListener("click", check4) : __defers["$.__views.addD!click!check4"] = !0;
     $.__views.hint = Ti.UI.createLabel({
         color: "#000",
-        top: "300dp",
+        top: "360dp",
         width: "80dp",
         height: "40dp",
-        align: "center",
+        left: "140dp",
         title: "Confirm",
         id: "hint"
     });
@@ -494,6 +498,146 @@ function Controller() {
         id: "wrong"
     });
     $.__views.__alloyId6.add($.__views.wrong);
+    $.__views.next = Ti.UI.createButton({
+        top: "5dp",
+        width: "80dp",
+        height: "40dp",
+        right: "20dp",
+        title: "Next",
+        id: "next"
+    });
+    $.__views.__alloyId6.add($.__views.next);
+    next ? $.__views.next.addEventListener("click", next) : __defers["$.__views.next!click!next"] = !0;
+    $.__views.back = Ti.UI.createButton({
+        top: "5dp",
+        width: "80dp",
+        height: "40dp",
+        left: "20dp",
+        title: "Back",
+        id: "back"
+    });
+    $.__views.__alloyId6.add($.__views.back);
+    back ? $.__views.back.addEventListener("click", back) : __defers["$.__views.back!click!back"] = !0;
+    $.__views.skip = Ti.UI.createButton({
+        top: "380dp",
+        width: "80dp",
+        height: "40dp",
+        right: "20dp",
+        title: "Skip",
+        id: "skip"
+    });
+    $.__views.__alloyId6.add($.__views.skip);
+    skip ? $.__views.skip.addEventListener("click", skip) : __defers["$.__views.skip!click!skip"] = !0;
+    $.__views.tab1 = Ti.UI.createTab({
+        title: "Category",
+        height: "10dp",
+        window: $.__views.movie,
+        id: "tab1"
+    });
+    $.__views.tabGroup.addTab($.__views.tab1);
+    $.__views.score = Ti.UI.createWindow({
+        backgroundColor: "#fff",
+        id: "score"
+    });
+    $.__views.header = Ti.UI.createView({
+        top: 0,
+        height: "42dp",
+        width: Ti.UI.FILL,
+        backgroundGradient: {
+            type: "linear",
+            startPoint: {
+                x: "0%",
+                y: "0%"
+            },
+            endPoint: {
+                x: "0%",
+                y: "100%"
+            },
+            colors: [ {
+                color: "#000",
+                offset: 0
+            }, {
+                color: "#ccc",
+                offset: 1
+            } ]
+        },
+        id: "header"
+    });
+    $.__views.score.add($.__views.header);
+    $.__views.title = Ti.UI.createLabel({
+        color: "#fff",
+        left: "10dp",
+        font: {
+            fontSize: "24dp",
+            fontWeight: "bold"
+        },
+        text: "Score List",
+        id: "title"
+    });
+    $.__views.header.add($.__views.title);
+    $.__views.tableView = Ti.UI.createTableView({
+        id: "tableView"
+    });
+    $.__views.score.add($.__views.tableView);
+    $.__views.tab3 = Ti.UI.createTab({
+        title: "Multiplayer",
+        window: $.__views.score,
+        id: "tab3"
+    });
+    $.__views.tabGroup.addTab($.__views.tab3);
+    $.__views.score = Ti.UI.createWindow({
+        backgroundColor: "#fff",
+        id: "score"
+    });
+    show ? $.__views.score.addEventListener("focus", show) : __defers["$.__views.score!focus!show"] = !0;
+    $.__views.header = Ti.UI.createView({
+        top: 0,
+        height: "42dp",
+        width: Ti.UI.FILL,
+        backgroundGradient: {
+            type: "linear",
+            startPoint: {
+                x: "0%",
+                y: "0%"
+            },
+            endPoint: {
+                x: "0%",
+                y: "100%"
+            },
+            colors: [ {
+                color: "#000",
+                offset: 0
+            }, {
+                color: "#ccc",
+                offset: 1
+            } ]
+        },
+        id: "header"
+    });
+    $.__views.score.add($.__views.header);
+    $.__views.title = Ti.UI.createLabel({
+        color: "#fff",
+        left: "10dp",
+        font: {
+            fontSize: "24dp",
+            fontWeight: "bold"
+        },
+        text: "Score List",
+        id: "title"
+    });
+    $.__views.header.add($.__views.title);
+    $.__views.tableView = Ti.UI.createTableView({
+        id: "tableView"
+    });
+    $.__views.score.add($.__views.tableView);
+    $.__views.tab2 = Ti.UI.createTab({
+        title: "High Score",
+        height: "10dp",
+        window: $.__views.score,
+        id: "tab2"
+    });
+    $.__views.tabGroup.addTab($.__views.tab2);
+    $.addTopLevelView($.__views.tabGroup);
     exports.destroy = function() {};
     _.extend($, $.__views);
     Ti.App.myGlobalVar = "cur_q";
@@ -510,12 +654,16 @@ function Controller() {
     var a1, ans1, ans2, ans3, ans4, hint, hint1, p = 2;
     cur_q = 0;
     next_q = 0;
-    __defers["$.__views.pol!focus!loaddata"] && $.__views.pol.addEventListener("focus", loaddata);
+    __defers["$.__views.movie!focus!loaddata"] && $.__views.movie.addEventListener("focus", loaddata);
     __defers["$.__views.addA!click!check1"] && $.__views.addA.addEventListener("click", check1);
     __defers["$.__views.addB!click!check2"] && $.__views.addB.addEventListener("click", check2);
     __defers["$.__views.addC!click!check3"] && $.__views.addC.addEventListener("click", check3);
     __defers["$.__views.addD!click!check4"] && $.__views.addD.addEventListener("click", check4);
     __defers["$.__views.confirm!click!confirm_ans"] && $.__views.confirm.addEventListener("click", confirm_ans);
+    __defers["$.__views.next!click!next"] && $.__views.next.addEventListener("click", next);
+    __defers["$.__views.back!click!back"] && $.__views.back.addEventListener("click", back);
+    __defers["$.__views.skip!click!skip"] && $.__views.skip.addEventListener("click", skip);
+    __defers["$.__views.score!focus!show"] && $.__views.score.addEventListener("focus", show);
     _.extend($, exports);
 }
 
