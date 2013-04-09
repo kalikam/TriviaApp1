@@ -260,13 +260,12 @@ function Controller() {
         id: "tableView"
     });
     $.__views.score.add($.__views.tableView);
-    $.__views.tab2 = Ti.UI.createTab({
-        title: "High Score",
-        height: "10dp",
+    $.__views.tab3 = Ti.UI.createTab({
+        title: "Multiplayer",
         window: $.__views.score,
-        id: "tab2"
+        id: "tab3"
     });
-    $.__views.tabGroup.addTab($.__views.tab2);
+    $.__views.tabGroup.addTab($.__views.tab3);
     $.__views.score = Ti.UI.createWindow({
         backgroundColor: "#fff",
         id: "score"
@@ -311,12 +310,13 @@ function Controller() {
         id: "tableView"
     });
     $.__views.score.add($.__views.tableView);
-    $.__views.tab3 = Ti.UI.createTab({
-        title: "Multiplayer",
+    $.__views.tab2 = Ti.UI.createTab({
+        title: "High Score",
+        height: "10dp",
         window: $.__views.score,
-        id: "tab3"
+        id: "tab2"
     });
-    $.__views.tabGroup.addTab($.__views.tab3);
+    $.__views.tabGroup.addTab($.__views.tab2);
     $.addTopLevelView($.__views.tabGroup);
     exports.destroy = function() {};
     _.extend($, $.__views);

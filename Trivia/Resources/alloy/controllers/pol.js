@@ -1,17 +1,25 @@
 function Controller() {
     function loaddata() {
-        att_q > 5 && Alloy.createController("score").getView().open();
+        allow = 1;
+        var question;
+        cur_q += 1;
+        back_q = cur_q;
+        permit = 1;
+        cur_q > 10 && Alloy.createController("score").getView().open();
         $.correct.backgroundImage = "/tick_gray_64.png";
         $.wrong.backgroundImage = "/gray_x.png";
         var p = 2, dataReq = Titanium.Network.createHTTPClient();
         dataReq.open("POST", "http://nxgninnovations.com/playground/trivia/fetch.php");
         var params = {
-            id: p
+            catid: p
         };
         dataReq.send(params);
         dataReq.onload = function() {
-            var json = JSON.parse(this.responseText), q = json.question;
+            var json = JSON.parse(this.responseText);
+            q = json.question;
             hint = json.hint;
+            quest_id = json.qid;
+            cqu_id = quest_id;
             $.addB.backgroundImage = "/radioButtonIcon(1).gif";
             $.addD.backgroundImage = "/radioButtonIcon(1).gif";
             $.addC.backgroundImage = "/radioButtonIcon(1).gif";
@@ -22,84 +30,336 @@ function Controller() {
             $.c.text = json.c;
             $.d.text = json.d;
             $.hint.text = hint;
+            $.hint.visible = !1;
             ans1 = json.a;
             ans2 = json.b;
             ans3 = json.c;
             ans4 = json.d;
         };
     }
+    function closeWindow() {
+        $.movie.close();
+    }
     function check1() {
-        $.addB.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addD.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addC.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addA.backgroundImage = "/radioButtonSelectIcon.gif";
-        selection = 1;
+        if (permit == 1) {
+            $.addB.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addD.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addC.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addA.backgroundImage = "/radioButtonSelectIcon.gif";
+            selection = 1;
+        }
     }
     function check2() {
-        $.addA.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addC.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addD.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addB.backgroundImage = "/radioButtonSelectIcon.gif";
-        selection = 2;
+        if (permit == 1) {
+            $.addA.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addC.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addD.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addB.backgroundImage = "/radioButtonSelectIcon.gif";
+            selection = 2;
+        }
     }
     function check3() {
-        $.addA.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addB.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addD.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addC.backgroundImage = "/radioButtonSelectIcon.gif";
-        selection = 3;
+        if (permit == 1) {
+            $.addA.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addB.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addD.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addC.backgroundImage = "/radioButtonSelectIcon.gif";
+            selection = 3;
+        }
     }
     function check4() {
-        $.addA.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addB.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addC.backgroundImage = "/radioButtonIcon(1).gif";
-        $.addD.backgroundImage = "/radioButtonSelectIcon.gif";
-        selection = 4;
+        if (permit == 1) {
+            $.addA.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addB.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addC.backgroundImage = "/radioButtonIcon(1).gif";
+            $.addD.backgroundImage = "/radioButtonSelectIcon.gif";
+            selection = 4;
+        }
     }
     function confirm_ans() {
-        att_q += 1;
-        switch (selection) {
-          case 1:
-            answer = ans1;
-            break;
-          case 2:
-            answer = ans2;
-            break;
-          case 3:
-            answer = ans3;
-            break;
-          case 4:
-            answer = ans4;
-        }
-        if (answer == hint) {
-            $.correct.backgroundImage = "/tick.png";
-            total = parseInt(total) + 10;
-            setTimeout(function(e) {
-                loaddata();
-            }, 2000);
-            if (parseInt(att_q) > 5) {
-                var upScore = Titanium.Network.createHTTPClient();
-                upScore.open("POST", "http://nxgninnovations.com/playground/trivia/add_score.php");
-                var params = {
-                    user: user_name,
-                    total: total,
-                    cat: p
-                };
-                upScore.send(params);
-                upScore.onload = function() {
-                    var json = JSON.parse(this.responseText), q = json.msg, p1 = json.status;
-                    p1 == 1 && Alloy.createController("score").getView().open();
-                };
+        if (permit == 1) {
+            switch (selection) {
+              case 1:
+                a1 = ans1;
+                break;
+              case 2:
+                a1 = ans2;
+                break;
+              case 3:
+                a1 = ans3;
+                break;
+              case 4:
+                a1 = ans4;
             }
-        } else {
-            $.wrong.backgroundImage = "/red_x.png";
-            setTimeout(function(e) {
-                loaddata();
-            }, 2000);
+            if (a1 == hint) {
+                ans_s = 1;
+                $.correct.backgroundImage = "/tick.png";
+                total = parseInt(total) + 10;
+                setTimeout(function(e) {
+                    allow == 1 ? loaddata() : next();
+                }, 2000);
+                if (parseInt(cur_q) > 10) {
+                    var upScore = Titanium.Network.createHTTPClient();
+                    upScore.open("POST", "http://nxgninnovations.com/playground/trivia/add_score.php");
+                    var params = {
+                        user: user_name,
+                        total: total,
+                        cat: p
+                    };
+                    upScore.send(params);
+                    upScore.onload = function() {
+                        var json = JSON.parse(this.responseText), q = json.msg, p = json.status;
+                        p == 1 && Alloy.createController("score").getView().open();
+                    };
+                }
+            } else {
+                $.wrong.backgroundImage = "/red_x.png";
+                $.hint.visible = !0;
+                setTimeout(function(e) {
+                    loaddata();
+                }, 2000);
+                ans_s = 2;
+            }
+            var history = Ti.Network.createHTTPClient({
+                onerror: function(e) {
+                    Ti.API.debug(e.error);
+                    alert(e.error);
+                    alert("There was an error during the connection");
+                },
+                timeout: 1000
+            });
+            history.open("POST", "http://nxgninnovations.com/playground/trivia/update_history.php");
+            var params = {
+                user: user_name,
+                seq: cur_q,
+                quest_id: quest_id,
+                state: ans_s,
+                ans: a1,
+                opt: "2"
+            };
+            alert(params);
+            history.send(params);
+            history.onload = function() {
+                var json = JSON.parse(this.responseText);
+            };
         }
     }
-    function closeWindow() {
-        $.pol.close();
+    function show() {
+        var sendit = Ti.Network.createHTTPClient({
+            onerror: function(e) {
+                Ti.API.debug(e.error);
+                alert(e.error);
+                alert("There was an error during the connection");
+            },
+            timeout: 1000
+        });
+        sendit.open("POST", "http://nxgninnovations.com/playground/trivia/show_score.php");
+        sendit.send();
+        sendit.onload = function() {
+            var json = JSON.parse(this.responseText), json = json.test;
+            json.length == 0 && ($.tableView.headerTitle = "The database row is empty");
+            dataArray = [];
+            for (var i = 0; i < json.length; i++) {
+                var row = Ti.UI.createTableViewRow(), view1 = Ti.UI.createView({
+                    left: "0%",
+                    width: "50%",
+                    backgroundColor: "black"
+                }), label1 = Ti.UI.createLabel({
+                    color: "white",
+                    text: json[i].name
+                });
+                view1.add(label1);
+                var view2 = Ti.UI.createView({
+                    left: "50%",
+                    width: "50%",
+                    backgroundColor: "red"
+                }), label2 = Ti.UI.createLabel({
+                    color: "white",
+                    text: json[i].marks
+                });
+                view2.add(label2);
+                row.add(view1);
+                row.add(view2);
+                dataArray.push(row);
+            }
+            $.tableView.setData(dataArray);
+        };
+    }
+    function skip() {
+        back_q == cur_q ? skip_q() : next();
+    }
+    function next() {
+        $.correct.backgroundImage = "/tick_gray_64.png";
+        $.wrong.backgroundImage = "/gray_x.png";
+        alert(cur_q);
+        alert(next_q);
+        if (next_q == cur_q) {
+            allow = 1;
+            var history = Ti.Network.createHTTPClient({
+                onerror: function(e) {
+                    Ti.API.debug(e.error);
+                    alert(e.error);
+                    alert("There was an error during the connection");
+                },
+                timeout: 1000
+            });
+            history.open("POST", "http://nxgninnovations.com/playground/trivia/fetch1.php");
+            var params = {
+                catid: s,
+                question: cqu_id
+            };
+            history.send(params);
+            history.onload = function() {
+                var json = JSON.parse(this.responseText);
+                q = json.question;
+                hint = json.hint;
+                quest_id = json.qid;
+                state = json.state;
+                answer = json.answer;
+                $.addB.backgroundImage = "/radioButtonIcon(1).gif";
+                $.addD.backgroundImage = "/radioButtonIcon(1).gif";
+                $.addC.backgroundImage = "/radioButtonIcon(1).gif";
+                $.addA.backgroundImage = "/radioButtonIcon(1).gif";
+                $.ques.text = q;
+                $.a.text = json.a;
+                $.b.text = json.b;
+                $.c.text = json.c;
+                $.d.text = json.d;
+                $.hint.text = hint;
+                $.hint.visible = !1;
+                ans1 = json.a;
+                ans2 = json.b;
+                ans3 = json.c;
+                ans4 = json.d;
+                if (state == 1) {
+                    answer == ans1 && check1();
+                    answer == ans2 && check2();
+                    answer == ans3 && check3();
+                    answer == ans4 && check4();
+                    $.correct.backgroundImage = "/tick.png";
+                } else if (state == 2) {
+                    answer == ans1 && check1();
+                    answer == ans2 && check2();
+                    answer == ans3 && check3();
+                    answer == ans4 && check4();
+                    $.wrong.backgroundImage = "/red_x.png";
+                    $.hint.visible = !0;
+                }
+            };
+            back_q = next_q - 1;
+        } else {
+            var history1 = Ti.Network.createHTTPClient({
+                onerror: function(e) {
+                    Ti.API.debug(e.error);
+                    alert(e.error);
+                    alert("There was an error during the connection");
+                },
+                timeout: 1000
+            });
+            history1.open("POST", "http://nxgninnovations.com/playground/trivia/back.php");
+            var params = {
+                user: user_name,
+                seq: back_q
+            };
+            alert(params);
+            history1.send(params);
+            history1.onload = function() {
+                var json = JSON.parse(this.responseText);
+                setTimeout(function(e) {
+                    loaddata();
+                }, 2000);
+            };
+            back_q = next_q;
+            next_q += 1;
+            alert(next_q);
+        }
+    }
+    function back() {
+        allow = 0;
+        var state, answer;
+        $.correct.backgroundImage = "/tick_gray_64.png";
+        $.wrong.backgroundImage = "/gray_x.png";
+        next_q = back_q;
+        back_q -= 1;
+        alert("next-".next_q);
+        if (back_q > 0) {
+            var history = Ti.Network.createHTTPClient({
+                onerror: function(e) {
+                    Ti.API.debug(e.error);
+                    alert(e.error);
+                    alert("There was an error during the connection");
+                },
+                timeout: 1000
+            });
+            history.open("POST", "http://nxgninnovations.com/playground/trivia/back.php");
+            var params = {
+                user: user_name,
+                seq: back_q
+            };
+            history.send(params);
+            history.onload = function() {
+                var json = JSON.parse(this.responseText);
+                q = json.question;
+                hint = json.hint;
+                quest_id = json.qid;
+                state = json.state;
+                answer = json.answer;
+                $.addB.backgroundImage = "/radioButtonIcon(1).gif";
+                $.addD.backgroundImage = "/radioButtonIcon(1).gif";
+                $.addC.backgroundImage = "/radioButtonIcon(1).gif";
+                $.addA.backgroundImage = "/radioButtonIcon(1).gif";
+                $.ques.text = q;
+                $.a.text = json.a;
+                $.b.text = json.b;
+                $.c.text = json.c;
+                $.d.text = json.d;
+                $.hint.text = hint;
+                $.hint.visible = !1;
+                ans1 = json.a;
+                ans2 = json.b;
+                ans3 = json.c;
+                ans4 = json.d;
+                if (state == 1) {
+                    answer == ans1 && check1();
+                    answer == ans2 && check2();
+                    answer == ans3 && check3();
+                    answer == ans4 && check4();
+                    $.correct.backgroundImage = "/tick.png";
+                } else if (state == 2) {
+                    answer == ans1 && check1();
+                    answer == ans2 && check2();
+                    answer == ans3 && check3();
+                    answer == ans4 && check4();
+                    $.wrong.backgroundImage = "/red_x.png";
+                    $.hint.visible = !0;
+                }
+            };
+        }
+    }
+    function skip_q() {
+        var history1 = Ti.Network.createHTTPClient({
+            onerror: function(e) {
+                Ti.API.debug(e.error);
+                alert(e.error);
+                alert("There was an error during the connection");
+            },
+            timeout: 1000
+        });
+        history1.open("POST", "http://nxgninnovations.com/playground/trivia/update_history.php");
+        var params = {
+            user: user_name,
+            seq: cur_q,
+            quest_id: quest_id,
+            state: "0",
+            ans: "0"
+        };
+        history1.send(params);
+        history1.onload = function() {
+            var json = JSON.parse(this.responseText);
+            setTimeout(function(e) {
+                loaddata();
+            }, 2000);
+        };
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
@@ -236,7 +496,20 @@ function Controller() {
     $.__views.__alloyId6.add($.__views.wrong);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var todos = Alloy.Collections.todo, total = 0, att_q = 1, selection = 0, ans1, ans2, ans3, ans4, hint, answer, p = 2;
+    Ti.App.myGlobalVar = "cur_q";
+    Ti.App.myGlobalVar = "quest_id";
+    Ti.App.myGlobalVar = "cqu_id";
+    Ti.App.myGlobalVar = "ans_s";
+    Ti.App.myGlobalVar = "a1";
+    Ti.App.myGlobalVar = "allow";
+    ans_s = 3;
+    var todos = Alloy.Collections.todo, total = 0, selection = 1;
+    att_q = 0;
+    allow = 0;
+    temp = 0;
+    var a1, ans1, ans2, ans3, ans4, hint, hint1, p = 2;
+    cur_q = 0;
+    next_q = 0;
     __defers["$.__views.pol!focus!loaddata"] && $.__views.pol.addEventListener("focus", loaddata);
     __defers["$.__views.addA!click!check1"] && $.__views.addA.addEventListener("click", check1);
     __defers["$.__views.addB!click!check2"] && $.__views.addB.addEventListener("click", check2);

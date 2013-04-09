@@ -1,11 +1,11 @@
 function Controller() {
     function loaddata() {
+        allow = 1;
         var question;
         cur_q += 1;
         back_q = cur_q;
-        alert(back_q);
         permit = 1;
-        cur_q > 9 && Alloy.createController("score").getView().open();
+        cur_q > 10 && Alloy.createController("score").getView().open();
         $.correct.backgroundImage = "/tick_gray_64.png";
         $.wrong.backgroundImage = "/gray_x.png";
         var m = 1, dataReq = Titanium.Network.createHTTPClient();
@@ -16,11 +16,10 @@ function Controller() {
         dataReq.send(params);
         dataReq.onload = function() {
             var json = JSON.parse(this.responseText);
-            alert(json);
             q = json.question;
             hint = json.hint;
             quest_id = json.qid;
-            alert(question);
+            cqu_id = quest_id;
             $.addB.backgroundImage = "/radioButtonIcon(1).gif";
             $.addD.backgroundImage = "/radioButtonIcon(1).gif";
             $.addC.backgroundImage = "/radioButtonIcon(1).gif";
@@ -37,28 +36,6 @@ function Controller() {
             ans3 = json.c;
             ans4 = json.d;
         };
-        setTimeout(function(e) {
-            var history = Ti.Network.createHTTPClient({
-                onerror: function(e) {
-                    Ti.API.debug(e.error);
-                    alert(e.error);
-                    alert("There was an error during the connection");
-                },
-                timeout: 1000
-            });
-            history.open("POST", "http://nxgninnovations.com/playground/trivia/history.php");
-            alert(question);
-            var params = {
-                user: user_name,
-                seq: cur_q,
-                quest_id: quest_id
-            };
-            alert(params);
-            history.send(params);
-            history.onload = function() {
-                var json = JSON.parse(this.responseText);
-            };
-        }, 10000);
     }
     function closeWindow() {
         $.movie.close();
@@ -100,7 +77,6 @@ function Controller() {
         }
     }
     function confirm_ans() {
-        var ans_state;
         if (permit == 1) {
             switch (selection) {
               case 1:
@@ -116,13 +92,13 @@ function Controller() {
                 a1 = ans4;
             }
             if (a1 == hint) {
-                ans_state = 1;
+                ans_s = 1;
                 $.correct.backgroundImage = "/tick.png";
                 total = parseInt(total) + 10;
                 setTimeout(function(e) {
-                    back_q == cur_q ? loaddata() : next();
+                    allow == 1 ? loaddata() : next();
                 }, 2000);
-                if (parseInt(cur_q) > 9) {
+                if (parseInt(cur_q) > 10) {
                     var upScore = Titanium.Network.createHTTPClient();
                     upScore.open("POST", "http://nxgninnovations.com/playground/trivia/add_score.php");
                     var params = {
@@ -142,7 +118,7 @@ function Controller() {
                 setTimeout(function(e) {
                     loaddata();
                 }, 2000);
-                ans_state = 2;
+                ans_s = 2;
             }
             var history = Ti.Network.createHTTPClient({
                 onerror: function(e) {
@@ -157,10 +133,11 @@ function Controller() {
                 user: user_name,
                 seq: cur_q,
                 quest_id: quest_id,
-                state: ans_state,
+                state: ans_s,
                 ans: a1,
                 opt: "2"
             };
+            alert(params);
             history.send(params);
             history.onload = function() {
                 var json = JSON.parse(this.responseText);
@@ -209,12 +186,15 @@ function Controller() {
         };
     }
     function skip() {
-        back_q == cur_q ? loaddata() : next();
+        back_q == cur_q ? skip_q() : next();
     }
     function next() {
         $.correct.backgroundImage = "/tick_gray_64.png";
         $.wrong.backgroundImage = "/gray_x.png";
-        if (next_q <= cur_q) {
+        alert(cur_q);
+        alert(next_q);
+        if (next_q == cur_q) {
+            allow = 1;
             var history = Ti.Network.createHTTPClient({
                 onerror: function(e) {
                     Ti.API.debug(e.error);
@@ -223,10 +203,10 @@ function Controller() {
                 },
                 timeout: 1000
             });
-            history.open("POST", "http://nxgninnovations.com/playground/trivia/back.php");
+            history.open("POST", "http://nxgninnovations.com/playground/trivia/fetch1.php");
             var params = {
-                user: user_name,
-                seq: next_q
+                catid: m,
+                question: cqu_id
             };
             history.send(params);
             history.onload = function() {
@@ -266,17 +246,42 @@ function Controller() {
                     $.hint.visible = !0;
                 }
             };
+            back_q = next_q - 1;
+        } else {
+            var history1 = Ti.Network.createHTTPClient({
+                onerror: function(e) {
+                    Ti.API.debug(e.error);
+                    alert(e.error);
+                    alert("There was an error during the connection");
+                },
+                timeout: 1000
+            });
+            history1.open("POST", "http://nxgninnovations.com/playground/trivia/back.php");
+            var params = {
+                user: user_name,
+                seq: back_q
+            };
+            alert(params);
+            history1.send(params);
+            history1.onload = function() {
+                var json = JSON.parse(this.responseText);
+                setTimeout(function(e) {
+                    loaddata();
+                }, 2000);
+            };
+            back_q = next_q;
+            next_q += 1;
+            alert(next_q);
         }
-        back_q = next_q;
-        next_q += 1;
     }
     function back() {
+        allow = 0;
         var state, answer;
         $.correct.backgroundImage = "/tick_gray_64.png";
         $.wrong.backgroundImage = "/gray_x.png";
         next_q = back_q;
         back_q -= 1;
-        alert(back_q);
+        alert("next-".next_q);
         if (back_q > 0) {
             var history = Ti.Network.createHTTPClient({
                 onerror: function(e) {
@@ -294,7 +299,6 @@ function Controller() {
             history.send(params);
             history.onload = function() {
                 var json = JSON.parse(this.responseText);
-                alert(json);
                 q = json.question;
                 hint = json.hint;
                 quest_id = json.qid;
@@ -316,45 +320,46 @@ function Controller() {
                 ans3 = json.c;
                 ans4 = json.d;
                 if (state == 1) {
-                    if (answer == ans1) {
-                        check1();
-                        alert("sweety");
-                    }
-                    if (answer == ans2) {
-                        check2();
-                        alert("sweety");
-                    }
-                    if (answer == ans3) {
-                        check3();
-                        alert("sweety");
-                    }
-                    if (answer == ans4) {
-                        alert("sweety");
-                        check4();
-                    }
+                    answer == ans1 && check1();
+                    answer == ans2 && check2();
+                    answer == ans3 && check3();
+                    answer == ans4 && check4();
                     $.correct.backgroundImage = "/tick.png";
                 } else if (state == 2) {
-                    if (answer == ans1) {
-                        alert("sweety");
-                        check1();
-                    }
-                    if (answer == ans2) {
-                        alert("sweety");
-                        check2();
-                    }
-                    if (answer == ans3) {
-                        check3();
-                        alert("sweety");
-                    }
-                    if (answer == ans4) {
-                        alert("sweety");
-                        check4();
-                    }
+                    answer == ans1 && check1();
+                    answer == ans2 && check2();
+                    answer == ans3 && check3();
+                    answer == ans4 && check4();
                     $.wrong.backgroundImage = "/red_x.png";
                     $.hint.visible = !0;
                 }
             };
         }
+    }
+    function skip_q() {
+        var history1 = Ti.Network.createHTTPClient({
+            onerror: function(e) {
+                Ti.API.debug(e.error);
+                alert(e.error);
+                alert("There was an error during the connection");
+            },
+            timeout: 1000
+        });
+        history1.open("POST", "http://nxgninnovations.com/playground/trivia/update_history.php");
+        var params = {
+            user: user_name,
+            seq: cur_q,
+            quest_id: quest_id,
+            state: "0",
+            ans: "0"
+        };
+        history1.send(params);
+        history1.onload = function() {
+            var json = JSON.parse(this.responseText);
+            setTimeout(function(e) {
+                loaddata();
+            }, 2000);
+        };
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
@@ -637,9 +642,14 @@ function Controller() {
     _.extend($, $.__views);
     Ti.App.myGlobalVar = "cur_q";
     Ti.App.myGlobalVar = "quest_id";
-    quest_id = 0;
+    Ti.App.myGlobalVar = "cqu_id";
+    Ti.App.myGlobalVar = "ans_s";
+    Ti.App.myGlobalVar = "a1";
+    Ti.App.myGlobalVar = "allow";
+    ans_s = 3;
     var todos = Alloy.Collections.todo, total = 0, selection = 1;
     att_q = 0;
+    allow = 0;
     temp = 0;
     var a1, ans1, ans2, ans3, ans4, hint, hint1, m = 1;
     cur_q = 0;

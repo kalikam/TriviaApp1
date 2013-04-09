@@ -14,7 +14,7 @@
 	 </Window>
 	  </Tab>
 	  
-	     <Tab id="tab2"> 
+	     <Tab id="tab3"> 
            	   <Window id="score" onFocus="show">
 	<View id="header">
             <Label id="title">Score List</Label>
@@ -22,7 +22,7 @@
      <TableView id="tableView"/> 
  	</Window>
    </Tab>
-   <Tab id="tab3"> 
+   <Tab id="tab2"> 
            	   <Window id="score">
 	<View id="header">
             <Label id="title">Score List</Label>
